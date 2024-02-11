@@ -1,11 +1,11 @@
 <?php
 if (!isset($_SESSION['user'])) {
-    echo "not logged in";
-    redirect('admin/index', 'refresh');
+  echo "not logged in";
+  redirect('admin/index', 'refresh');
 }
 if ($_SESSION['id'] != $userid) {
-    echo "not logged in";
-    redirect('admin/index', 'refresh');
+  echo "not logged in";
+  redirect('admin/index', 'refresh');
 }
 ?>
 <!DOCTYPE html>
@@ -13,23 +13,23 @@ if ($_SESSION['id'] != $userid) {
 
 <head>
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>User Admin</title>
-    <!--dropify -->
-    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin_assets/dropify/dropify.min.css')  ?>" />
-    <!-- plugins:css -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/mdi/css/materialdesignicons.min.css'; ?>">
-    <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.css'; ?>">
-    <!-- endinject -->
-    <!-- plugin css for this page -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css'; ?>">
-    <!-- End plugin css for this page -->
-    <!-- inject:css -->
-    <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/css/style.css'; ?>">
-    <!-- endinject -->
-    <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/user_assets/favicon/favicon633320.png'; ?>" />
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>User Admin</title>
+  <!--dropify -->
+  <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/admin_assets/dropify/dropify.min.css')  ?>" />
+  <!-- plugins:css -->
+  <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/mdi/css/materialdesignicons.min.css'; ?>">
+  <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.css'; ?>">
+  <!-- endinject -->
+  <!-- plugin css for this page -->
+  <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.css'; ?>">
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/css/style.css'; ?>">
+  <!-- endinject -->
+  <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/user_assets/favicon/favicon633320.png'; ?>" />
 </head>
 
 <body>
@@ -51,27 +51,27 @@ if ($_SESSION['id'] != $userid) {
         </div>
       </div>
     </div>
-        <?php include_once('menu.php'); ?>
-        <!-- partial -->
-        <div class="main-panel">
-            <div class="content-wrapper">
+    <?php include_once('menu.php'); ?>
+    <!-- partial -->
+    <div class="main-panel">
+      <div class="content-wrapper">
 
-                <div class="row">
-                    <div class="col-md-12 grid-margin">
-                        <div class="d-flex justify-content-between flex-wrap">
-                            <div class="d-flex align-items-end flex-wrap">
-                                <!-- <div class="me-md-3 me-xl-5">
-                                    <h2>Welcome back,</h2>
-                                    <p class="mb-md-0">Your digital card dashboards</p>
-                                </div> -->
-                                <!-- <div class="d-flex">
+        <div class="row">
+          <div class="col-md-12 grid-margin">
+            <div class="d-flex justify-content-between flex-wrap">
+              <div class="d-flex align-items-end flex-wrap">
+                <div class="me-md-3 me-xl-5">
+                  <!--<h2>Welcome back,</h2>-->
+                  <!--<p class="mb-md-0">Your digital card dashboards</p>-->
+                </div>
+                <!-- <div class="d-flex">
                     <i class="mdi mdi-home text-muted hover-cursor"></i>
                     <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
                     <p class="text-primary mb-0 hover-cursor">Analytics</p>
                   </div> -->
-                            </div>
-                            <div class="d-flex justify-content-between align-items-end flex-wrap">
-                                <!-- <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
+              </div>
+              <div class="d-flex justify-content-between align-items-end flex-wrap">
+                <!-- <button type="button" class="btn btn-light bg-white btn-icon me-3 d-none d-md-block ">
                     <i class="mdi mdi-download text-muted"></i>
                   </button>
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
@@ -80,22 +80,39 @@ if ($_SESSION['id'] != $userid) {
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
                     <i class="mdi mdi-plus text-muted"></i>
                   </button> -->
-                                <!-- <button class="btn btn-primary mt-2 mt-xl-0">Generate report</button> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 grid-margin stretch-card">
-                        <div class="card">
-                            <div class="card-body dashboard-tabs p-0">
-                                <ul class="nav nav-tabs px-4" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], "changepassword") == true) {
+                <!--<button class="btn btn-primary mt-2 mt-xl-0">Generate report</button>-->
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body dashboard-tabs p-0">
+                <ul class="nav nav-tabs px-4" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link <?php if ($this->uri->segment(2)=='testimonial') {
                                                                 echo "active";
-                                                            } ?>" id="overview-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="false">Change Password</a>
-                                    </li>
-                                    <!-- <li class="nav-item">
+                                                            } ?>" id="overview-tab" href="<?php echo base_url().'index.php/Admin/testimonial/'.$userid; ?>">Testimonial
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ">|</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link <?php if ($this->uri->segment(2)=='socialmedia') {
+                                                                echo "active";
+                                                            } ?>" href="#">SocialMedia</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link ">|</a>
+                  </li>
+                  <li class="nav-item ">
+                    <a class="nav-link <?php if ($this->uri->segment(2)=='other') {
+                                                                echo "active";
+                                                            } ?>" href="<?php echo base_url().'index.php/Admin/other/'.$userid; ?>" role="tab">Other</a>
+                  </li>
+                  <!-- <li class="nav-item">
                     <a class="nav-link" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab"
                         aria-controls="overview" aria-selected="false">|</a>
                     </li>
@@ -143,11 +160,11 @@ if ($_SESSION['id'] != $userid) {
                       <a class="nav-link" id="purchases-tab" data-bs-toggle="tab" href="#purchases" role="tab"
                         aria-controls="purchases" aria-selected="false">Other</a>
                     </li> -->
-                                    <!-- <li class="nav-item">
+                  <!-- <li class="nav-item">
                       <a class="nav-link active" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab"
                         aria-controls="overview" aria-selected="true">Overview</a>
                     </li> -->
-                                    <!-- <li class="nav-item">
+                  <!-- <li class="nav-item">
                       <a class="nav-link" id="sales-tab" data-bs-toggle="tab" href="#sales" role="tab"
                         aria-controls="sales" aria-selected="false">Sales</a>
                     </li>
@@ -155,11 +172,11 @@ if ($_SESSION['id'] != $userid) {
                       <a class="nav-link" id="purchases-tab" data-bs-toggle="tab" href="#purchases" role="tab"
                         aria-controls="purchases" aria-selected="false">Purchases</a>
                     </li> -->
-                                </ul>
-                                <div class="tab-content py-0 px-0">
-                                    <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
-                                        <div class="d-flex flex-wrap justify-content-xl-between">
-                                            <!-- <div
+                </ul>
+                <div class="tab-content py-0 px-0">
+                  <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                    <div class="d-flex flex-wrap justify-content-xl-between">
+                      <!-- <div
                           class="d-none d-xl-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-calendar-heart icon-lg me-3 text-primary"></i>
                           <div class="d-flex flex-column justify-content-around">
@@ -178,7 +195,7 @@ if ($_SESSION['id'] != $userid) {
                             </div>
                           </div>
                         </div> -->
-                                            <!-- <div
+                      <!-- <div
                           class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-currency-usd me-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
@@ -186,7 +203,7 @@ if ($_SESSION['id'] != $userid) {
                             <h5 class="me-2 mb-0">$577545</h5>
                           </div>
                         </div> -->
-                                            <!-- <div
+                      <!-- <div
                           class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-eye me-3 icon-lg text-success"></i>
                           <div class="d-flex flex-column justify-content-around">
@@ -194,7 +211,7 @@ if ($_SESSION['id'] != $userid) {
                             <h5 class="me-2 mb-0">9833550</h5>
                           </div>
                         </div> -->
-                                            <!-- <div
+                      <!-- <div
                           class="d-flex border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-download me-3 icon-lg text-warning"></i>
                           <div class="d-flex flex-column justify-content-around">
@@ -202,7 +219,7 @@ if ($_SESSION['id'] != $userid) {
                             <h5 class="me-2 mb-0">2233783</h5>
                           </div>
                         </div> -->
-                                            <!-- <div
+                      <!-- <div
                           class="d-flex py-3 border-md-right flex-grow-1 align-items-center justify-content-center p-3 item">
                           <i class="mdi mdi-flag me-3 icon-lg text-danger"></i>
                           <div class="d-flex flex-column justify-content-around">
@@ -210,27 +227,27 @@ if ($_SESSION['id'] != $userid) {
                             <h5 class="me-2 mb-0">3497843</h5>
                           </div>
                         </div> -->
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="sales-tab">
-                                        <div class="d-flex flex-wrap justify-content-xl-between">
-
-
-                                        </div>
-                                    </div>
-                                    <div class="tab-pane fade" id="purchases" role="tabpanel" aria-labelledby="purchases-tab">
-                                        <div class="d-flex flex-wrap justify-content-xl-between">
-
-
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                     </div>
+                  </div>
+                  <div class="tab-pane fade" id="sales" role="tabpanel" aria-labelledby="sales-tab">
+                    <div class="d-flex flex-wrap justify-content-xl-between">
+
+
+                    </div>
+                  </div>
+                  <div class="tab-pane fade" id="purchases" role="tabpanel" aria-labelledby="purchases-tab">
+                    <div class="d-flex flex-wrap justify-content-xl-between">
+
+
+                    </div>
+                  </div>
                 </div>
-                <div class="row">
-                    <!-- <div class="col-md-7 grid-margin stretch-card">
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <!-- <div class="col-md-7 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Cash deposits</p>
@@ -241,7 +258,7 @@ if ($_SESSION['id'] != $userid) {
                 </div>
               </div>
             </div> -->
-                    <!-- <div class="col-md-5 grid-margin stretch-card">
+          <!-- <div class="col-md-5 grid-margin stretch-card">
               <div class="card">
                 <div class="card-body">
                   <p class="card-title">Total sales</p>
@@ -254,55 +271,64 @@ if ($_SESSION['id'] != $userid) {
                 <canvas id="total-sales-chart"></canvas>
               </div>
             </div> -->
-                </div>
+        </div>
+        <a href="<?php echo base_url().'index.php/admin/testimonial/'.$userid; ?>"> <button type="button" onclick="" class="btn btn-secondary ">Back</button></a>
+        <a href="<?php echo base_url().'index.php/admin/other/'.$userid; ?>"><button type="button" style="float:right;" class="btn btn-primary">Skip</button></a><br><br>
+        <div class="row">
+          <div class="col-md-12 stretch-card">
+            <div class="card">
+              <div class="card-body">
 
-                <div class="row">
-                    <div class="col-md-12 stretch-card">
-                        <div class="card">
-                            <div class="card-body">
 
-                                <!-- <p class="card-title">Recent Purchases</p> -->
-                                <h4 class="card-title">Change Password Form</h4>
-                                <?php if ($this->session->flashdata('success')) : ?>
-                                    <div class="alert alert-info">
-                                        <?= $this->session->flashdata('success'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error1')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error1'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <!-- <p class="card-description">
+                <h4 class="card-title">Social Media Form</h4>
+                <!-- <p class="card-description">
                     Basic form layout
                   </p> -->
-                                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <form class="forms-sample" method="post" enctype="multipart/form-data">
 
-                                    <!-- <button class="btn btn-light">Skip</button> -->
-                                    <div class="form-group">
-                                        <input type="hidden" required name="userid" class="form-control" id="exampleInputUsername1" placeholder="Company Name" value="<?php echo $userid; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputUsername1">Old Password</label>
-                                        <input type="text" required name="old_pass" class="form-control" id="exampleInputUsername1" placeholder="Old Password" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">New Password</label>
-                                        <input type="text" required name="new_pass" class="form-control" id="exampleInputEmail1" placeholder="New Password" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Confirm Password</label>
-                                        <input type="text" required name="conf_pass" class="form-control" id="exampleInputEmail1" placeholder="Confirm Password" value="">
-                                    </div>
-                                    <button type="submit" name="chpass" class="btn btn-primary me-2">Change</button>
-                                    <!-- <button class="btn btn-light">Cancel</button> -->
-                                </form>
-                                <!-- <div class="table-responsive">
+                  <!-- <button class="btn btn-light">Skip</button> -->
+                  <div class="form-group">
+                    <input type="hidden"  name="userid" class="form-control" id="exampleInputUsername1" placeholder="Company Name" value="<?php echo $userid; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Facebook</label>
+                    <input type="text"  name="facebook" class="form-control" id="exampleInputUsername1" placeholder="Facebook" value="<?php echo $social['facebook']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Instagram</label>
+                    <input type="text"  name="instagram" class="form-control" id="exampleInputUsername1" placeholder="Instagram" value="<?php echo $social['instagram']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">LinkedIn</label>
+                    <input type="text"  name="linkedin" class="form-control" id="exampleInputUsername1" placeholder="LinkedIn" value="<?php echo $social['linkedin']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Twitter</label>
+                    <input type="text"  name="twitter" class="form-control" id="exampleInputUsername1" placeholder="Twitter" value="<?php echo $social['twitter']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">Youtube</label>
+                    <input type="text"  name="youtube" class="form-control" id="exampleInputUsername1" placeholder="YouTube" value="<?php echo $social['youtube']; ?>">
+                  </div>
+                  <h4>YouTube Links</h4>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">YouTube Link1</label>
+                    <input type="text"  name="y1" class="form-control" id="exampleInputUsername1" placeholder="YouTube Link" value="<?php echo $social['video_link1']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">YouTube Link2</label>
+                    <input type="text"  name="y2" class="form-control" id="exampleInputUsername1" placeholder="YouTube Link" value="<?php echo $social['video_link2']; ?>">
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleInputUsername1">YouTube Link3</label>
+                    <input type="text"  name="y3" class="form-control" id="exampleInputUsername1" placeholder="YouTube Link" value="<?php echo $social['video_link3']; ?>">
+                  </div>
+
+
+                  <button type="submit" name="addsocial" class="btn btn-primary me-2">Next</button>
+                  <!-- <button class="btn btn-light">Cancel</button> -->
+                </form>
+                <!-- <div class="table-responsive">
                     <table id="recent-purchases-listing" class="table">
                       <thead>
                         <tr>
@@ -382,57 +408,57 @@ if ($_SESSION['id'] != $userid) {
                       </tbody>
                     </table>
                   </div> -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <!-- content-wrapper ends -->
-            <!-- partial:partials/_footer.html -->
-            <footer class="footer">
+          </div>
+        </div>
+      </div>
+      <!-- content-wrapper ends -->
+      <!-- partial:partials/_footer.html -->
+      <footer class="footer">
                 <div class="d-sm-flex justify-content-center justify-content-sm-between">
                     <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © <a href="#" target="_blank">Virtual Card Station</a>2024</span>
                     <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">For Best Digital Card Contact <a href="#" target="_blank">Virtual Card Station</a>
                     </span>
                 </div>
-            </footer>
-            <!-- partial -->
-        </div>
-        <!-- main-panel ends -->
+      </footer>
+      <!-- partial -->
     </div>
-    <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    </div>
+    <!-- main-panel ends -->
+  </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha512-egJ/Y+22P9NQ9aIyVCh0VCOsfydyn8eNmqBy+y2CnJG+fpRIxXMS6jbWP8tVKp0jp+NO5n8WtMUAnNnGoJKi4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <!-- dropify -->
-    <script src="<?php echo base_url('assets/admin_assets/dropify/vendor.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/admin_assets/dropify/dropify.min.js'); ?>"></script>
-    <script src="<?php echo base_url('assets/admin_assets/dropify/form-fileupload.init.js'); ?>"></script>
 
-    <!-- plugins:js -->
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.js'; ?>"></script>
-    <!-- endinject -->
-    <!-- Plugin js for this page-->
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/chart.js/Chart.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net/jquery.dataTables.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js'; ?>">
-    </script>
-    <!-- End plugin js for this page-->
-    <!-- inject:js -->
-    <script src="<?php echo base_url().'assets/admin_assets/js/off-canvas.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/hoverable-collapse.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/template.js'; ?>"></script>
-    <!-- endinject -->
-    <!-- Custom js for this page-->
-    <script src="<?php echo base_url().'assets/admin_assets/js/dashboard.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/data-table.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/jquery.dataTables.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/dataTables.bootstrap4.js'; ?>"></script>
-    <!-- End custom js for this page-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha512-egJ/Y+22P9NQ9aIyVCh0VCOsfydyn8eNmqBy+y2CnJG+fpRIxXMS6jbWP8tVKp0jp+NO5n8WtMUAnNnGoJKi4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- dropify -->
+  <script src="<?php echo base_url('assets/admin_assets/dropify/vendor.min.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/admin_assets/dropify/dropify.min.js'); ?>"></script>
+  <script src="<?php echo base_url('assets/admin_assets/dropify/form-fileupload.init.js'); ?>"></script>
 
-    <script src="<?php echo base_url().'assets/admin_assets/js/jquery.cookie.js'; ?>" type="text/javascript"></script>
+  <!-- plugins:js -->
+  <script src="<?php echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.js'; ?>"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page-->
+  <script src="<?php echo base_url().'assets/admin_assets/vendors/chart.js/Chart.min.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net/jquery.dataTables.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js'; ?>">
+  </script>
+  <!-- End plugin js for this page-->
+  <!-- inject:js -->
+  <script src="<?php echo base_url().'assets/admin_assets/js/off-canvas.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/js/hoverable-collapse.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/js/template.js'; ?>"></script>
+  <!-- endinject -->
+  <!-- Custom js for this page-->
+  <script src="<?php echo base_url().'assets/admin_assets/js/dashboard.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/js/data-table.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/js/jquery.dataTables.js'; ?>"></script>
+  <script src="<?php echo base_url().'assets/admin_assets/js/dataTables.bootstrap4.js'; ?>"></script>
+  <!-- End custom js for this page-->
+
+  <script src="<?php echo base_url().'assets/admin_assets/js/jquery.cookie.js'; ?>" type="text/javascript"></script>
 </body>
 
 </html>

@@ -48,10 +48,6 @@ class Image
         $CI->upload->initialize($bb);
         
 
-
-
-        
-        
         
         if ($CI->upload->do_upload($imagename)) {
             $data = $CI->upload->data();

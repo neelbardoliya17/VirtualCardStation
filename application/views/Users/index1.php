@@ -1,4 +1,4 @@
-<? if(date("Y-m-d")>=$detail['eight_date']) {
+<?php if(date("Y-m-d")>=$detail['eight_date']) {
     if($detail['payment_status']==1)
     {
         if(date("Y-m-d")>=$detail['enddate'] && $detail['status']==0)
@@ -25,7 +25,7 @@
     }
 } ?>
 
-<? if($detail['status']==1) { ?>
+<?php if($detail['status']==1) { ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,73 +34,73 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><? echo $detail['company_name']; ?></title>
+    <title><?php echo $detail['company_name']; ?></title>
     <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 
     <!--Favicon-->
-    <? if($detail['favicon_image']!="") { ?>
+    <?php if($detail['favicon_image']!="") { ?>
         <link rel="icon" href="<?php echo base_url('assets/user_assets/favicon/') . $detail['favicon_image']; ?>" />
-    <? } ?>
+    <?php } ?>
     
     <!-- Google Fonts -->
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,800,700,300' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto:100' rel='stylesheet' type='text/css'>
     <!-- Bootstrap -->
-    <link href="<? echo base_url().'assets/css/bootstrap.min.css'; ?>" rel="stylesheet">
+    <link href="<?php echo base_url().'assets/css/bootstrap.min.css'; ?>" rel="stylesheet">
     <!-- FontAwesome -->
-    <link href="<? echo base_url().'assets/css/font-awesome.min.css'; ?>" rel="stylesheet">
+    <link href="<?php echo base_url().'assets/css/font-awesome.min.css'; ?>" rel="stylesheet">
     <!-- ET Line -->
-    <link href="<? echo base_url().'assets/css/et-line.css'; ?>" rel="stylesheet">
+    <link href="<?php echo base_url().'assets/css/et-line.css'; ?>" rel="stylesheet">
     <!-- VenoBox CSS -->
-    <link rel="stylesheet" href="<? echo base_url().'assets/css/venobox.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/venobox.css'; ?>">
     <!-- Owl CSS -->
-    <link rel="stylesheet" href="<? echo base_url().'assets/css/owl.carousel.css'; ?>">
-    <link rel="stylesheet" href="<? echo base_url().'assets/css/animate.css'; ?>">
-    <link rel="stylesheet" href="<? echo base_url().'assets/css/slick.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/owl.carousel.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/animate.css'; ?>">
+    <link rel="stylesheet" href="<?php echo base_url().'assets/css/slick.css'; ?>">
     <!-- Main CSS -->
-    <link href="<? echo base_url().'assets/css/style.css'; ?>" rel="stylesheet">
+    <link href="<?php echo base_url().'assets/css/style.css'; ?>" rel="stylesheet">
     <!-- Responsive CSS -->
-    <link href="<? echo base_url().'assets/css/responsive.css'; ?>" rel="stylesheet">
+    <link href="<?php echo base_url().'assets/css/responsive.css'; ?>" rel="stylesheet">
     <style>
     .mainmenu-area ul.nav.navbar-nav > li a:after {
-        background-color:<? echo $detail['button_color']; ?>
+        background-color:<?php echo $detail['button_color']; ?>
     }
     .cl
     {
-        color:<? echo $detail['button_color']; ?>;
+        color:<?php echo $detail['button_color']; ?>;
         padding:10px;
     
     }
     .mainmenu-area ul.nav.navbar-nav > li a
     {
-        color:<? echo $detail['header_text_color']; ?> !important;
+        color:<?php echo $detail['header_text_color']; ?> !important;
     }
     #scrollTop
     {
-        background-color:<? echo $detail['button_color']; ?>;
+        background-color:<?php echo $detail['button_color']; ?>;
     }
     #colornew
     {
-        color:<? echo $detail['button_color']; ?>;
+        color:<?php echo $detail['button_color']; ?>;
     }
     #colorbtn
     {
-        background-color:<? echo $detail['button_color']; ?>;
+        background-color:<?php echo $detail['button_color']; ?>;
     }
     #colorbtn1
     {
-        color:<? echo $detail['button_color']; ?>;
+        color:<?php echo $detail['button_color']; ?>;
     }
     .mainmenu-area {
-    background-color:<? echo $detail['header_color']; ?>;
+    background-color:<?php echo $detail['header_color']; ?>;
     }
     .footer-area {
-    background-color:<? echo $detail['footer_color']; ?>;
+    background-color:<?php echo $detail['footer_color']; ?>;
     }
     .cc
     {
-        background-color:<? echo $detail['button_color']; ?>;
+        background-color:<?php echo $detail['button_color']; ?>;
     }
         .wrapper1 {
     /* margin: 100px auto; */
@@ -122,9 +122,9 @@
     font-size: 18px;
     font-weight: 500;
     cursor: pointer;
-    color:<? echo $detail['button_color']; ?>;
+    color:<?php echo $detail['button_color']; ?>;
     border-radius: 50px;
-    border: 2px solid <? echo $detail['button_color']; ?>;
+    border: 2px solid <?php echo $detail['button_color']; ?>;
     transition: all 0.3s ease;
     display:inline-block;
     margin-bottom:25px;
@@ -132,7 +132,7 @@
     .items1 span.active,
     .items1 span:hover {
     color: #fff;
-    background: <? echo $detail['button_color']; ?>;
+    background: <?php echo $detail['button_color']; ?>;
     }
         .gallery1 {
         display: flex;
@@ -357,11 +357,11 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button> <!-- mobile menu button, shows only in mobile -->
-                        <a class="navbar-brand" style="padding:8px;" href="#"><? if($detail['logo_image']!="") { ?><img style="height:53px;width:140px;"
-                                src="<? echo base_url().'assets/user_assets/logo/'.$detail['logo_image']; ?>" alt=""><? } else { ?>
+                        <a class="navbar-brand" style="padding:8px;" href="#"><?php if($detail['logo_image']!="") { ?><img style="height:53px;width:140px;"
+                                src="<?php echo base_url().'assets/user_assets/logo/'.$detail['logo_image']; ?>" alt=""><?php } else { ?>
                                     <img style="height:53px;"
-                                src="<? echo base_url().'assets/user_assets/logo/test.png'; ?>" alt="">
-                               <? } ?></a> <!-- main logo here -->
+                                src="<?php echo base_url().'assets/user_assets/logo/test.png'; ?>" alt="">
+                               <?php } ?></a> <!-- main logo here -->
                     </div>
 
                     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -371,14 +371,14 @@
                             <li><a href="#services">Profile </a></li>
                             <li><a href="#contact">contact us </a></li>
                             <li><a href="#about">About us </a></li>
-                            <? if($brands['service_display']==1) { ?>
+                            <?php if($brands['service_display']==1) { ?>
                             <li><a href="#brands">Brands</a></li>
-                            <? } ?>
-                            <? if($product['as_service']==1) { ?>
+                            <?php } ?>
+                            <?php if($product['as_service']==1) { ?>
                             <li><a href="#portfolio">Services </a></li>
-                            <? } else { ?>
+                            <?php } else { ?>
                              <li><a href="#portfolio">Products </a></li>
-                            <? } ?>
+                            <?php } ?>
                             <li><a href="#teams">Gallery </a></li>
                             <li><a href="#testimonial">Feedback </a></li>
                             <li><a href="#price">Rate Us </a></li>
@@ -545,49 +545,49 @@
                 src="assets/img/slider/slider1-1.jpg">
             
         </div> -->
-        <? if($detail['slider_image1']!=""){ ?>
+        <?php if($detail['slider_image1']!=""){ ?>
         <div class="slides">
             <h2 class="slide-title" style="display:none">Lorem ipsum</h2>
             <p class="slide-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue,
                 suscipit a,
                 scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla
                 ac diam.</p>
-            <img width="1920" src="<? echo base_url().'assets/user_assets/slider/'.$detail['slider_image1']; ?>">
+            <img width="1920" src="<?php echo base_url().'assets/user_assets/slider/'.$detail['slider_image1']; ?>">
         
         </div>
-        <? } else { ?>
+        <?php } else { ?>
         <div class="slides">
             <h2 class="slide-title" style="display:none">Lorem ipsum</h2>
             <p class="slide-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue,
                 suscipit a,
                 scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla
                 ac diam.</p>
-            <img width="1920" src="<? echo base_url().'assets/user_assets/slider/test.png'; ?>">
+            <img width="1920" src="<?php echo base_url().'assets/user_assets/slider/test.png'; ?>">
         
         </div>
-        <? } ?>
+        <?php } ?>
 
-        <? if($detail['slider_image2']!=""){ ?>
+        <?php if($detail['slider_image2']!=""){ ?>
         <div class="slides">
             <h2 class="slide-title" style="display:none">Lorem ipsum</h2>
             <p class="slide-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue,
                 suscipit a,
                 scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla
                 ac diam.</p>
-            <img width="1920" src="<? echo base_url().'assets/user_assets/slider/'.$detail['slider_image2']; ?>">
+            <img width="1920" src="<?php echo base_url().'assets/user_assets/slider/'.$detail['slider_image2']; ?>">
         
         </div>
-        <? } else { ?>
+        <?php } else { ?>
         <div class="slides">
             <h2 class="slide-title" style="display:none">Lorem ipsum</h2>
             <p class="slide-desc" style="display:none">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Proin nibh augue,
                 suscipit a,
                 scelerisque sed, lacinia in, mi. Cras vel lorem. Etiam pellentesque aliquet tellus. Phasellus pharetra nulla
                 ac diam.</p>
-            <img width="1920" src="<? echo base_url().'assets/user_assets/slider/test.png'; ?>">
+            <img width="1920" src="<?php echo base_url().'assets/user_assets/slider/test.png'; ?>">
         
         </div>
-        <? } ?>
+        <?php } ?>
         
         
         <!-- <div class="slides">
@@ -621,48 +621,48 @@
             <div class="container"> 
                 <div class="row">
                     <div class="col-12" style="text-align: center; color:#000; font-weight:700;">
-                        <h1 style="font-size:30px;"><? echo $detail['company_name']; ?></h1>
-                        <h3 style="font-size:20px;"><? echo $detail['owner_name']; ?></h3>
+                        <h1 style="font-size:30px;"><?php echo $detail['company_name']; ?></h1>
+                        <h3 style="font-size:20px;"><?php echo $detail['owner_name']; ?></h3>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="single-service"  style="margin-bottom:0px;">
                             <div class="icon">
-                                <a class="cl" href="tel:<? echo $detail['contact_no']; ?>"><i class="fa fa-phone"></i></a>
+                                <a class="cl" href="tel:<?php echo $detail['contact_no']; ?>"><i class="fa fa-phone"></i></a>
                                 <!--<span class="icon-desktop"></span>-->
                             </div>
-                            <h3><a href="tel:<? echo $detail['contact_no']; ?>">Call</a></h3>
+                            <h3><a href="tel:<?php echo $detail['contact_no']; ?>">Call</a></h3>
 
                         </div>
                     </div> <!-- /.end single-service column -->
-                    <? $me=str_replace(['<p>', '</p>'], '', $detail['whatsapp_message']); ?>
+                    <?php $me=str_replace(['<p>', '</p>'], '', $detail['whatsapp_message']); ?>
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="single-service"  style="margin-bottom:0px;">
                             <div class="icon">
-                                <a class="cl" target="_blank" href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $me; ?>"><i
+                                <a class="cl" target="_blank" href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $me; ?>"><i
                                         class="fa fa-whatsapp"></i></a>
                             </div>
-                            <h3><a target="_blank"href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $me; ?>">Whatsapp</a></h3>
+                            <h3><a target="_blank"href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $me; ?>">Whatsapp</a></h3>
 
                         </div>
                     </div> <!-- /.end single-service column -->
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="single-service"  style="margin-bottom:0px;">
                             <div class="icon">
-                                <a class="cl" href="mailto:<? echo $detail['email']; ?>"><i class="fa fa-envelope-o"></i></a>
+                                <a class="cl" href="mailto:<?php echo $detail['email']; ?>"><i class="fa fa-envelope-o"></i></a>
                             </div>
-                            <h3><a href="mailto:<? echo $detail['email']; ?>">Email</a></h3>
+                            <h3><a href="mailto:<?php echo $detail['email']; ?>">Email</a></h3>
 
                         </div>
                     </div> <!-- /.end single-service column -->
                     <div class="col-md-4 col-sm-6 col-xs-6">
                         <div class="single-service"  style="margin-bottom:0px;">
                             <div class="icon">
-                                <a class="cl" target="_blank" href="<? echo $detail['mapurl']; ?>"><i
+                                <a class="cl" target="_blank" href="<?php echo $detail['mapurl']; ?>"><i
                                         class="fa fa-map-marker"></i></a>
                             </div>
-                            <h3><a href="<? echo $detail['mapurl']; ?>">Location</a></h3>
+                            <h3><a href="<?php echo $detail['mapurl']; ?>">Location</a></h3>
 
                         </div>
                     </div> <!-- /.end single-service column -->
@@ -670,11 +670,11 @@
                         <div class="single-service"  style="margin-bottom:0px;">
                             <div class="icon">
                                 <a class="cl" target="_blank"
-                                    href="<? echo $detail['website'];  ?>"><i
+                                    href="<?php echo $detail['website'];  ?>"><i
                                         class="fa fa-globe"></i></a>
                             </div>
                             <h3><a
-                                    href="<? echo $detail['website'];  ?>">Website</a>
+                                    href="<?php echo $detail['website'];  ?>">Website</a>
                             </h3>
 
                         </div>
@@ -709,20 +709,20 @@
                             <div class="s-address">
                                 <span class="icon-envelope" id="colornew"></span>
                                 <h4>Email <span><a
-                                            href="mailto:<? echo $detail['email']; ?>"><? echo $detail['email']; ?></a></span>
+                                            href="mailto:<?php echo $detail['email']; ?>"><?php echo $detail['email']; ?></a></span>
                                 </h4>
                             </div> <!-- /.end single address -->
                             <div class="s-address">
                                 <span class="icon-mic" id="colornew"></span>
-                                <h4>Phone <? if($detail['contact_no']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<? echo $detail['contact_no']; ?>"><? echo $detail['contact_no']; ?></a></span><?} ?>
-        <? if($detail['alternate_contact1']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<? echo $detail['alternate_contact1'] ?>"><? echo $detail['alternate_contact1']; ?></a></span> <? } ?>
-        <? if($detail['alternate_contact2']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<? echo $detail['alternate_contact2']; ?>"><? echo $detail['alternate_contact2']; ?></a></span> <? } ?>
-        <? if($detail['alternate_contact3']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<? echo $detail['alternate_contact3']; ?>"><? echo $detail['alternate_contact3']; ?></a></span> <? } ?>
+                                <h4>Phone <?php if($detail['contact_no']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<?php echo $detail['contact_no']; ?>"><?php echo $detail['contact_no']; ?></a></span><?} ?>
+        <?php if($detail['alternate_contact1']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<?php echo $detail['alternate_contact1'] ?>"><?php echo $detail['alternate_contact1']; ?></a></span> <?php } ?>
+        <?php if($detail['alternate_contact2']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<?php echo $detail['alternate_contact2']; ?>"><?php echo $detail['alternate_contact2']; ?></a></span> <?php } ?>
+        <?php if($detail['alternate_contact3']!='') { ?><span>+91<a style="font-weight: bold;" href="tel:<?php echo $detail['alternate_contact3']; ?>"><?php echo $detail['alternate_contact3']; ?></a></span> <?php } ?>
                                 </h4>
                             </div> <!-- /.end single address -->
                             <div class="s-address">
                                 <span class="icon-map-pin" id="colornew"></span>
-                                <h4>Address <span><a target="_blank" href="<? echo $detail['mapurl']; ?>"    >  <? echo $detail['address']; ?></a></span></h4>
+                                <h4>Address <span><a target="_blank" href="<?php echo $detail['mapurl']; ?>"    >  <?php echo $detail['address']; ?></a></span></h4>
                             </div> <!-- /.end single address -->
                         </div> <!-- /.end address -->
                     </div>
@@ -732,7 +732,7 @@
         </section> <!-- /.end get-in-touch-area -->
 
         <section class="google-maps-area">
-        <? echo $detail['maptag']; ?>
+        <?php echo $detail['maptag']; ?>
             <!-- <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3720.5295718917196!2d72.8256373!3d21.171111699999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be04f9b1310a85b%3A0x52bf6d272fff2bb1!2sTopaz%20Furniture%20%26%20Decorators!5e0!3m2!1sen!2sin!4v1667791329683!5m2!1sen!2sin"
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
@@ -883,7 +883,7 @@
                                 <div class="input-group-append">
                                     <div class="input-group-append-part1">
                                         <button id="whatsappshare" type="button"  class="btn btn-medium btn-greenish"
-                                            style="margin-top:0px;color:#fff;background-color:<? echo $detail['button_color']; ?>">
+                                            style="margin-top:0px;color:#fff;background-color:<?php echo $detail['button_color']; ?>">
 
 
                                             Share on Whatsapp <i class="fa fa-whatsapp"></i>
@@ -903,7 +903,7 @@
                                         alert("Please Enter Only 10 digit Mobile Number.");
                                         }
                                         else {
-                                            window.open("https://wa.me/91"+person+"?text=You%20Can%20see%20my%20digital%20card%20and%20share%20to%20other%20persons%20https://icedinfotech.com/digicard/<? echo $detail['slug']; ?>");
+                                            window.open("https://wa.me/91"+person+"?text=You%20Can%20see%20my%20digital%20card%20and%20share%20to%20other%20persons%20https://icedinfotech.com/digicard/<?php echo $detail['slug']; ?>");
                                         } 
                                     });
                                 </script>
@@ -956,7 +956,7 @@
                     <div class="col-md-3 col-sm-3 col-xs-12">
                         <div class="purchase-text" style="margin-top: 0px; margin-bottom: 0px;">
                             
-                            <a id="colorbtn"   href="<? echo site_url().'vcard_front/vcard_generate/'.$detail['user_id']; ?>" class="btn btn-medium btn-greenish">Add to
+                            <a id="colorbtn"   href="<?php echo site_url().'vcard_front/vcard_generate/'.$detail['user_id']; ?>" class="btn btn-medium btn-greenish">Add to
                                 Contact </a>
                         </div> <!-- /.end purchase-text -->
                     </div> <!-- /.end single work column -->
@@ -970,50 +970,50 @@
                         </button>
                         <div class="dropdown-menu" aria-labelledby="socialshare">
                             <ul class="list-inline">
-                                <? if($detail['facebook']!=NULL) { ?>
+                                <?php if($detail['facebook']!=NULL) { ?>
                                 <li class="list-inline-item m-1">
-                                    <a target="_blank" id="colornew" href="<? echo $detail['facebook']; ?>"
+                                    <a target="_blank" id="colornew" href="<?php echo $detail['facebook']; ?>"
                                         class="text-decoration-none p-2" title="Facebook">
                                         <i class="fa fa-facebook fas fa-2x text-dark"></i>
                                     </a>
                                 </li>
-                                <? } ?>
+                                <?php } ?>
                                 
-                                 <? if($detail['instagram']!=NULL) { ?>
+                                 <?php if($detail['instagram']!=NULL) { ?>
                                 <li class="list-inline-item m-1">
-                                    <a target="_blank" id="colornew" href="<? echo $detail['instagram']; ?>"
+                                    <a target="_blank" id="colornew" href="<?php echo $detail['instagram']; ?>"
                                         class="text-decoration-none p-2" title="Instagram">
                                         <i class="fa fa-instagram fas fa-2x text-dark"></i>
                                     </a>
                                 </li>
-                                <? } ?>
+                                <?php } ?>
                                 
-                                 <? if($detail['twitter']!=NULL) { ?>
+                                 <?php if($detail['twitter']!=NULL) { ?>
                                 <li class="list-inline-item m-1">
-                                    <a target="_blank" id="colornew" href="<? echo $detail['twitter']; ?>"
+                                    <a target="_blank" id="colornew" href="<?php echo $detail['twitter']; ?>"
                                         class="text-decoration-none p-2" title="Twitter">
                                         <i class="fa fa-twitter fas fa-2x text-dark"></i>
                                     </a>
                                 </li>
-                                <? } ?>
+                                <?php } ?>
                                 
-                                 <? if($detail['linkedin']!=NULL) { ?>
+                                 <?php if($detail['linkedin']!=NULL) { ?>
                                 <li class="list-inline-item m-1">
-                                    <a target="_blank" id="colornew" href="<? echo $detail['linkedin']; ?>"
+                                    <a target="_blank" id="colornew" href="<?php echo $detail['linkedin']; ?>"
                                         class="text-decoration-none p-2" title="Linkedin">
                                         <i class="fa fa-linkedin fas fa-2x text-dark"></i>
                                     </a>
                                 </li>
-                                <? } ?>
+                                <?php } ?>
                                 
-                                 <? if($detail['youtube']!=NULL) { ?>
+                                 <?php if($detail['youtube']!=NULL) { ?>
                                 <li class="list-inline-item m-1">
-                                    <a target="_blank" id="colornew" href="<? echo $detail['youtube']; ?>"
+                                    <a target="_blank" id="colornew" href="<?php echo $detail['youtube']; ?>"
                                         class="text-decoration-none p-2" title="Linkedin">
                                         <i class="fa fa-youtube fas fa-2x text-dark"></i>
                                     </a>
                                 </li>
-                                <? } ?>
+                                <?php } ?>
                                 <!-- <li class="list-inline-item m-1">
                                     <a target="_blank"
                                         href="https://facebook.com/sharer/sharer.php?u=https%3A//dizitalcard.in/topaz-furniture/"
@@ -1132,30 +1132,30 @@
 
 
 
-    <section id="about" class="about-area" style="padding-top:50px; padding-bottom:115px;background-color:<? echo $detail['about_color']; ?>">
+    <section id="about" class="about-area" style="padding-top:50px; padding-bottom:115px;background-color:<?php echo $detail['about_color']; ?>">
         <div class="about-img">
             <style>
-            <? if($detail['about_image']!="") { ?>
+            <?php if($detail['about_image']!="") { ?>
                 .about-img {
-                    background: url('<? echo base_url().'assets/user_assets/about/'.$detail['about_image']; ?>') no-repeat scroll center center / cover;
+                    background: url('<?php echo base_url().'assets/user_assets/about/'.$detail['about_image']; ?>') no-repeat scroll center center / cover;
                 }
-            <? } else { ?>
+            <?php } else { ?>
                 .about-img {
-                    background: url('<? echo base_url().'assets/user_assets/about/test.png'; ?>') no-repeat scroll center center / cover;
+                    background: url('<?php echo base_url().'assets/user_assets/about/test.png'; ?>') no-repeat scroll center center / cover;
                 }
-            <? } ?>
+            <?php } ?>
             </style>
         </div> <!-- about-us image, image is used by css -->
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-sm-offset-5 col-xs-12">
-                    <div class="about-us-text" style="color:<? echo $detail['about_text_color']; ?>">
+                    <div class="about-us-text" style="color:<?php echo $detail['about_text_color']; ?>">
                         <h2>About us</h2>
-                        <h3><? echo $detail['est_year']; ?></h3>
-                        <h4><? echo $detail['business_type']; ?></h4>
+                        <h3><?php echo $detail['est_year']; ?></h3>
+                        <h4><?php echo $detail['business_type']; ?></h4>
 
-                        <h4><? echo $detail['about_title']; ?></h4>
-                        <p style="text-align: justify;"><? echo $detail['about_description']; ?></p>
+                        <h4><?php echo $detail['about_title']; ?></h4>
+                        <p style="text-align: justify;"><?php echo $detail['about_description']; ?></p>
                         <!-- <p><i class="fa fa-check" style="padding-right: 8px;"></i>Manufacturer of All kind of premium
                             and Highend luxurious furnitures</p> -->
                         
@@ -1175,9 +1175,9 @@
                                     <div class="row">
                                         <div class="col-lg-12 col-xs-16"
                                             style="color:black; font-weight: 500; padding-left:40px; padding-right:10px; padding-bottom:0px; margin-bottom: 0px ;">
-                                            <span style="font-weight:bold">Monday To Friday:   </span>   <? echo $detail['mon_fri']; ?><br>
-                                            <span style="font-weight:bold">Satuday:   </span>     <? echo $detail['saturday']; ?><br>
-                                            <span style="font-weight:bold">Sunday:   </span>  <? echo $detail['sunday']; ?>
+                                            <span style="font-weight:bold">Monday To Friday:   </span>   <?php echo $detail['mon_fri']; ?><br>
+                                            <span style="font-weight:bold">Satuday:   </span>     <?php echo $detail['saturday']; ?><br>
+                                            <span style="font-weight:bold">Sunday:   </span>  <?php echo $detail['sunday']; ?>
                                         </div>
                                         <!-- <div class="col-lg-3 col-xs-12"
                                             style="color:black; font-weight: 500; padding-left:40px; padding-right:10px; padding-bottom:0px; margin-bottom: 0px ;">
@@ -1222,7 +1222,7 @@
     <br>
     <br>
     
-    <? if($brands['service_display']==1) { ?>
+    <?php if($brands['service_display']==1) { ?>
     <section id="brands" class="our-work-area" style="background-color: #fafafa; padding-top:30px; padding-bottom:30px;">
         <div class="container">
             <div class="row">
@@ -1235,18 +1235,18 @@
 
             
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name1']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name1']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <? if($brands['service_image1']!="") { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image1']; ?>" alt="" >
-                        <? } else { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
-                        <? } ?>
+                        <?php if($brands['service_image1']!="") { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image1']; ?>" alt="" >
+                        <?php } else { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
+                        <?php } ?>
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name1']; ?></p>
+                            <p><?php echo $brands['service_name1']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
@@ -1255,18 +1255,18 @@
     
             
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name2']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name2']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <? if($brands['service_image2']!="") { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image2']; ?>" alt="" >
-                         <? } else { ?>
-                         <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
-                         <? } ?>
+                        <?php if($brands['service_image2']!="") { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image2']; ?>" alt="" >
+                         <?php } else { ?>
+                         <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
+                         <?php } ?>
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name2']; ?></p>
+                            <p><?php echo $brands['service_name2']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
@@ -1275,18 +1275,18 @@
 
             
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name3']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name3']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                         <? if($brands['service_image3']!="") { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image3']; ?>" alt="" >
-                        <? } else { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
-                        <? } ?>
+                         <?php if($brands['service_image3']!="") { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image3']; ?>" alt="" >
+                        <?php } else { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
+                        <?php } ?>
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name3']; ?></p>
+                            <p><?php echo $brands['service_name3']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
@@ -1295,158 +1295,158 @@
 
             
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name4']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name4']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <? if($brands['service_image4']!="") { ?>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image4']; ?>" alt="" >
-                         <? } else { ?>
-                         <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
-                         <? } ?>
+                        <?php if($brands['service_image4']!="") { ?>
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image4']; ?>" alt="" >
+                         <?php } else { ?>
+                         <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/test.png'; ?>" alt="" >
+                         <?php } ?>
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name4']; ?></p>
+                            <p><?php echo $brands['service_name4']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
             
 
-            <? if($brands['service_name5']!="") { ?>
+            <?php if($brands['service_name5']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name5']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name5']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"  height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image5']; ?>" alt="" >
+                        <img class="content-image"  height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image5']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name5']; ?></p>
+                            <p><?php echo $brands['service_name5']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name6']!="") { ?>
+            <?php if($brands['service_name6']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name6']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name6']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image6']; ?>" alt="" >
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image6']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name6']; ?></p>
+                            <p><?php echo $brands['service_name6']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name7']!="") { ?>
+            <?php if($brands['service_name7']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name7']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name7']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image" width="720"  height="360" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image7']; ?>" alt="" >
+                        <img class="content-image" width="720"  height="360" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image7']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name7']; ?></p>
+                            <p><?php echo $brands['service_name7']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name8']!="") { ?>
+            <?php if($brands['service_name8']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name8']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name8']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image8']; ?>" alt="" >
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image8']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name8']; ?></p>
+                            <p><?php echo $brands['service_name8']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name9']!="") { ?>
+            <?php if($brands['service_name9']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name9']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name9']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image9']; ?>" alt="" >
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image9']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name9']; ?></p>
+                            <p><?php echo $brands['service_name9']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name10']!="") { ?>
+            <?php if($brands['service_name10']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name10']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name10']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image10']; ?>" alt="" >
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image10']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name10']; ?></p>
+                            <p><?php echo $brands['service_name10']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name11']!="") { ?>
+            <?php if($brands['service_name11']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name11']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name11']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"   height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image11']; ?>" alt="" >
+                        <img class="content-image"   height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image11']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name11']; ?></p>
+                            <p><?php echo $brands['service_name11']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
 
-            <? if($brands['service_name12']!="") { ?>
+            <?php if($brands['service_name12']!="") { ?>
             <div class="containerbrands">
-                <h3 class="title"><? echo $brands['service_name12']; ?></h3>
+                <h3 class="title"><?php echo $brands['service_name12']; ?></h3>
                 <div class="content">
                     <!-- <a href="" target=""> -->
                         <div class="content-overlay"></div>
-                        <img class="content-image"  height="320" src="<? echo base_url().'assets/user_assets/service/'.$brands['service_image12']; ?>" alt="" >
+                        <img class="content-image"  height="320" src="<?php echo base_url().'assets/user_assets/service/'.$brands['service_image12']; ?>" alt="" >
                         <div class="content-details fadeIn-top fadeIn-right">
                             <!-- <h3>This is a title</h3> -->
-                            <p><? echo $brands['service_name12']; ?></p>
+                            <p><?php echo $brands['service_name12']; ?></p>
                         </div>
                     <!-- </a> -->
                 </div>
              </div>
-            <? } ?>
+            <?php } ?>
              
             <!-- <div class="row">
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img src="<? echo base_url().'assets/white_assets/galleryF/big_img/'.$gall['gallery_image']; ?>" alt="">
+                        <img src="<?php echo base_url().'assets/white_assets/galleryF/big_img/'.$gall['gallery_image']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/white_assets/galleryF/big_img/'.$gall['gallery_image']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/white_assets/galleryF/big_img/'.$gall['gallery_image']; ?>"></a>
 
                         </div>
                     </div>
@@ -1455,17 +1455,17 @@
             </div> -->
         </div>
     </section> <!-- /.end our-work-area -->
-    <? } ?>
+    <?php } ?>
     <section id="portfolio" class="section-padding our-work-area">
         <div class="container">
             <div class="row">
                 <div class="col-xs-12">
                     <div class="section-title">
-                           <? if($product['as_service']==1) { ?>
+                           <?php if($product['as_service']==1) { ?>
                         <h2>Our Services</h2>
-                        <? } else { ?>
+                        <?php } else { ?>
                         <h2>Our Products</h2>
-                        <? } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div> <!-- /.end section-title row -->
@@ -1474,14 +1474,14 @@
                 <nav>
                 <div class="items1">
                     <span   class="item1 active" data-name="all">All</span>
-                    <? if($product['product_category']!="") { ?>
-                    <? $arr=array();
+                    <?php if($product['product_category']!="") { ?>
+                    <?php $arr=array();
                     $test=rtrim($product['product_category'],",");
                     $arr=explode(",",$test);
                      ?>
-                    <? foreach($arr as $procat)  {?>
-                    <span  class="item1" data-name="<? echo $procat ?>"><? echo $procat; ?></span>
-                    <? } } ?>
+                    <?php foreach($arr as $procat)  {?>
+                    <span  class="item1" data-name="<?php echo $procat ?>"><?php echo $procat; ?></span>
+                    <?php } } ?>
                 </div>
                    </nav>
 
@@ -1490,29 +1490,29 @@
 
             <div class="gallery1">
                 
-                <? if($product['product_name1']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat1']; ?>" >
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat1']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image1']; ?>" alt="">
+                <?php if($product['product_name1']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat1']; ?>" >
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat1']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image1']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name1']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name1']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat1']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name1']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat1']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name1']; ?> 
                             </h4>
                           
                 </div>  
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="" >
                 <div class="single-work" style="margin-bottom: 10px;" data-name="">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
@@ -1523,31 +1523,31 @@
                             </h4>
                           
                 </div> 
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name2']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat2']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat2']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image2']; ?>" alt="">
+                <?php if($product['product_name2']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat2']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat2']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image2']; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name2']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name2']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat1']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name2']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat1']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name2']; ?> 
                             </h4>
                           
                 </div>  
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="" >
                 <div class="single-work" style="margin-bottom: 10px;" data-name="">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
@@ -1558,31 +1558,31 @@
                             </h4>
                           
                 </div> 
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name3']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat3']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat3']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image3']; ?>" alt="">
+                <?php if($product['product_name3']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat3']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat3']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image3']; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name3']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name3']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat3']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name3']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat3']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name3']; ?> 
                             </h4>
                           
                 </div>  
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="" >
                 <div class="single-work" style="margin-bottom: 10px;" data-name="">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
@@ -1593,31 +1593,31 @@
                             </h4>
                           
                 </div> 
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name4']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat4']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat4']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image4']; ?>" alt="">
+                <?php if($product['product_name4']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat4']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat4']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image4']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name4']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name4']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat4']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name4']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat4']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name4']; ?> 
                             </h4>
                           
                 </div>  
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="" >
                 <div class="single-work" style="margin-bottom: 10px;" data-name="">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/test.png'; ?>" alt="">
                             <div class="work-hover" >
                               
                                 <div class="work-details" id="colorbtn">
@@ -1628,175 +1628,175 @@
                             </h4>
                           
                 </div> 
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name5']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat5']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat5']; ?>">
-                            <img   height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image5']; ?>" alt="">
+                <?php if($product['product_name5']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat5']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat5']; ?>">
+                            <img   height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image5']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name5']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name5']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat5']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name5']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat5']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name5']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name6']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat6']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat6']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image6']; ?>" alt="">
+                <?php if($product['product_name6']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat6']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat6']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image6']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name6']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name6']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat6']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name6']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat6']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name6']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name7']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat7']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat7']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image7']; ?>" alt="">
+                <?php if($product['product_name7']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat7']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat7']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image7']; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name7']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name7']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat7']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name7']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat7']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name7']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name8']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat8']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat8']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image8']; ?>" alt="">
+                <?php if($product['product_name8']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat8']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat8']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image8']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name8']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name8']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat8']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name8']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat8']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name8']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name9']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat9']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat9']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image9']; ?>" alt="">
+                <?php if($product['product_name9']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat9']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat9']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image9']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name9']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name9']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat9']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name9']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat9']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name9']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name10']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat10']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat10']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image10']; ?>" alt="">
+                <?php if($product['product_name10']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat10']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat10']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image10']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name10']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name10']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat10']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name10']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat10']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name10']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name11']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat11']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat11']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image11']; ?>" alt="">
+                <?php if($product['product_name11']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat11']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat11']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image11']; ?>" alt="">
                             <div class="work-hover" >
                                 
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name11']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name11']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat11']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name11']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat11']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name11']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
-                <? if($product['product_name12']!="") { ?>
-                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<? echo $product['product_cat12']; ?>">
-                <div class="single-work" style="margin-bottom: 10px;" data-name="<? echo $product['product_cat12']; ?>">
-                            <img  height="320" src="<? echo base_url().'assets/user_assets/product/'.$product['product_image12']; ?>" alt="">
+                <?php if($product['product_name12']!="") { ?>
+                <div class="col-md-4 col-sm-4 col-xs-12 nnew" data-name="<?php echo $product['product_cat12']; ?>">
+                <div class="single-work" style="margin-bottom: 10px;" data-name="<?php echo $product['product_cat12']; ?>">
+                            <img  height="320" src="<?php echo base_url().'assets/user_assets/product/'.$product['product_image12']; ?>" alt="">
                             <div class="work-hover" >
                                
                                 <div class="work-details" id="colorbtn">
-                                    <? $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
+                                    <?php $messagenew=str_replace(['<p>', '</p>'], '', $detail['product_message']); ?>
                                     <a target="_blank" 
-                                        href="https://wa.me/91<? echo $detail['contact_no']; ?>?text=<? echo $messagenew."*"; echo $product['product_name12']."*"; ?>"><i
+                                        href="https://wa.me/91<?php echo $detail['contact_no']; ?>?text=<?php echo $messagenew."*"; echo $product['product_name12']."*"; ?>"><i
                                             class="fa fa-whatsapp" style="padding-right: 10px;"></i>Inquiry Now</a>
                                 </div>
                             </div>
                         </div> 
-                            <h4 class="single-work " data-name="<? echo $product['product_cat12']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
-                                <? echo $product['product_name12']; ?> 
+                            <h4 class="single-work " data-name="<?php echo $product['product_cat12']; ?>" style="text-align: center; margin-bottom: 25px; color:black; font-weight: 600;">
+                                <?php echo $product['product_name12']; ?> 
                             </h4>
                           
                 </div>  
-                <? } ?>
+                <?php } ?>
 
                 <!-- <div class="image1" data-name="bag"><span><img src="https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></span></div>
                 <div class="image1" data-name="headphone"><span><img src="https://images.pexels.com/photos/2335126/pexels-photo-2335126.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt=""></span></div>
@@ -1912,189 +1912,189 @@
             </div> <!-- /.end section-title row -->
             <div class="row">
             
-                <? if($gallery['gallery_image1']!="") { ?>
+                <?php if($gallery['gallery_image1']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image1']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image1']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image1']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image1']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image2']!="") { ?>
+                <?php if($gallery['gallery_image2']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image2']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image2']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image2']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image2']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-               <? } else { ?>
+               <?php } else { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image3']!="") { ?>
+                <?php if($gallery['gallery_image3']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image3']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image3']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image3']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image3']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-               <? } else { ?>
+               <?php } else { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image4']!="") { ?>
+                <?php if($gallery['gallery_image4']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image4']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image4']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image4']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image4']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } else { ?>
+                <?php } else { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/test.png'; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image5']!="") { ?>
+                <?php if($gallery['gallery_image5']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image5']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image5']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image5']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image5']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image6']!="") { ?>
+                <?php if($gallery['gallery_image6']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image6']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image6']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image6']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image6']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image7']!="") { ?>
+                <?php if($gallery['gallery_image7']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image7']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image7']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image7']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image7']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image8']!="") { ?>
+                <?php if($gallery['gallery_image8']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image8']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image8']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image8']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image8']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image9']!="") { ?>
+                <?php if($gallery['gallery_image9']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image9']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image9']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image9']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image9']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image10']!="") { ?>
+                <?php if($gallery['gallery_image10']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image10']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image10']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image10']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image10']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image11']!="") { ?>
+                <?php if($gallery['gallery_image11']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image11']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image11']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image11']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image11']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
-                <? if($gallery['gallery_image12']!="") { ?>
+                <?php if($gallery['gallery_image12']!="") { ?>
                 <div class="col-md-3 col-sm-4 col-xs-6">
                     <div class="single-work">
-                        <img height="180" src="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image12']; ?>" alt="">
+                        <img height="180" src="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image12']; ?>" alt="">
                         <div class="work-hover">
-                            <a class="popUpbtn" href="<? echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image12']; ?>"></a>
+                            <a class="popUpbtn" href="<?php echo base_url().'assets/user_assets/galleryF/'.$gallery['gallery_image12']; ?>"></a>
 
                         </div>
                     </div>
                 </div>
-                <? } ?>
+                <?php } ?>
 
                 
 
@@ -2185,7 +2185,7 @@
             </div> <!-- /.end section-title row -->
             <div class="row">
             
-                <? if($detail['video_link1']!="") { 
+                <?php if($detail['video_link1']!="") { 
                 $url=$detail['video_link1'];    
                 $substr="=";
                 if(strpos($url,$substr)!=false)
@@ -2203,14 +2203,14 @@
                 
                 <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 20px;">
                 
-                    <iframe width="100%" height="300" src="<? echo $embed_url; ?>"
+                    <iframe width="100%" height="300" src="<?php echo $embed_url; ?>"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div> 
-                    <? } ?>
+                    <?php } ?>
 
-                    <? if($detail['video_link2']!="") { 
+                    <?php if($detail['video_link2']!="") { 
                         $url=$detail['video_link2'];    
                         $substr="=";
                         if(strpos($url,$substr)!=false)
@@ -2226,14 +2226,14 @@
                         $embed_url="https://www.youtube.com/embed/".$video_id;?>
                 <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 20px;">
                
-                    <iframe width="100%" height="300" src=" <? echo $embed_url; ?>"
+                    <iframe width="100%" height="300" src=" <?php echo $embed_url; ?>"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div> 
-                    <? } ?>
+                    <?php } ?>
 
-                    <? if($detail['video_link3']!="") { 
+                    <?php if($detail['video_link3']!="") { 
                          $url=$detail['video_link3'];    
                          $substr="=";
                          if(strpos($url,$substr)!=false)
@@ -2250,12 +2250,12 @@
                     ?>
                 <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 20px;">
                 
-                    <iframe width="100%" height="300" src="<? echo $embed_url;?>"
+                    <iframe width="100%" height="300" src="<?php echo $embed_url;?>"
                         title="YouTube video player" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div> 
-                    <? } ?>
+                    <?php } ?>
                 <!-- /.end single work column -->
                 <!-- <div class="col-md-4 col-sm-4 col-xs-12" style="margin-bottom: 20px;">
                     <iframe width="100%" height="300" src="https://www.youtube.com/embed/UAk30oa-hC0"
@@ -2299,13 +2299,13 @@
                         <div class="slide-content">
                             <div class="client-content">
                                 <span class="comma-client">“</span>
-                                <p><? echo $testimonial['testimonial_description1']; ?></p>
+                                <p><?php echo $testimonial['testimonial_description1']; ?></p>
                             </div>
                             <div class="author-details">
                                 <div class="author-img">
-                                    <a href=""><img src="<? echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image1']; ?>" alt=""></a>
+                                    <a href=""><img src="<?php echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image1']; ?>" alt=""></a>
                                 </div>
-                                <h4><? echo $testimonial['testimonial_name1'] ?></h4>
+                                <h4><?php echo $testimonial['testimonial_name1'] ?></h4>
                             </div>
                         </div>
                     </div>
@@ -2314,50 +2314,50 @@
                         <div class="slide-content">
                             <div class="client-content">
                                 <span class="comma-client">“</span>
-                                <p><? echo $testimonial['testimonial_description2']; ?></p>
+                                <p><?php echo $testimonial['testimonial_description2']; ?></p>
                             </div>
                             <div class="author-details">
                                 <div class="author-img">
-                                    <a href=""><img src="<? echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image2']; ?>" alt=""></a>
+                                    <a href=""><img src="<?php echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image2']; ?>" alt=""></a>
                                 </div>
-                                <h4><? echo $testimonial['testimonial_name2'] ?></h4>
+                                <h4><?php echo $testimonial['testimonial_name2'] ?></h4>
                             </div>
                         </div>
                     </div>
                     
-                    <? if($testimonial['testimonial_name3']!=NULL) { ?>
+                    <?php if($testimonial['testimonial_name3']!=NULL) { ?>
                     <div class="slide col-xs-12">
                         <div class="slide-content">
                             <div class="client-content">
                                 <span class="comma-client">“</span>
-                                <p><? echo $testimonial['testimonial_description3']; ?></p>
+                                <p><?php echo $testimonial['testimonial_description3']; ?></p>
                             </div>
                             <div class="author-details">
                                 <div class="author-img">
-                                    <a href=""><img src="<? echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image3']; ?>" alt=""></a>
+                                    <a href=""><img src="<?php echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image3']; ?>" alt=""></a>
                                 </div>
-                                <h4><? echo $testimonial['testimonial_name3'] ?></h4>
+                                <h4><?php echo $testimonial['testimonial_name3'] ?></h4>
                             </div>
                         </div>
                     </div>
-                    <? } ?>
+                    <?php } ?>
                     
-                    <? if($testimonial['testimonial_name4']!=NULL) { ?>
+                    <?php if($testimonial['testimonial_name4']!=NULL) { ?>
                     <div class="slide col-xs-12">
                         <div class="slide-content">
                             <div class="client-content">
                                 <span class="comma-client">“</span>
-                                <p><? echo $testimonial['testimonial_description4']; ?></p>
+                                <p><?php echo $testimonial['testimonial_description4']; ?></p>
                             </div>
                             <div class="author-details">
                                 <div class="author-img">
-                                    <a href=""><img src="<? echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image4']; ?>" alt=""></a>
+                                    <a href=""><img src="<?php echo base_url().'assets/user_assets/testimonial/'.$testimonial['testimonial_image4']; ?>" alt=""></a>
                                 </div>
-                                <h4><? echo $testimonial['testimonial_name4'] ?></h4>
+                                <h4><?php echo $testimonial['testimonial_name4'] ?></h4>
                             </div>
                         </div>
                     </div>
-                    <? } ?>
+                    <?php } ?>
 
                     
                     <!-- /.end single-slide column -->
@@ -2574,10 +2574,10 @@
                 <div class="col-md-6 col-sm-6 col-xs-12">
                     <div class="single-work" style="margin-bottom: 10px; float: right;">
                         <div class="single-work123" style="align:center;">
-                            <img src="<? echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>" alt="" style="height: 300px;">
+                            <img src="<?php echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>" alt="" style="height: 300px;">
                         </div>
                         <div class="work-hover">
-                            <a download="Topaz Furniture" href="<? echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>  "></a>
+                            <a download="Topaz Furniture" href="<?php echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>  "></a>
 
                         </div>
                     </div>
@@ -2588,7 +2588,7 @@
                     <div class="purchase-text">
 
                         <a id="colorbtn" class="btn btn-medium btn-greenish" download="Topaz Furniture"
-                            href="<? echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>">Download QR <i class="fa fa-long-arrow-right"></i></a>
+                            href="<?php echo base_url().'assets/user_assets/qrcode/'.$detail['qrimage']; ?>">Download QR <i class="fa fa-long-arrow-right"></i></a>
                     </div> <!-- /.end purchase-text -->
                 </div> <!-- /.end single work column -->
 
@@ -2606,7 +2606,7 @@
                 }
 
                 .a-color-black .btn-greenish:hover {
-                    background-color:<? echo $color['button_color']; ?>;
+                    background-color:<?php echo $color['button_color']; ?>;
                     color: #fff;
                 }
             </style>
@@ -2630,8 +2630,8 @@
             <div class="row">
                 <div class="col-sm-4 col-sm-offset-4 col-xs-12">
                     <div class="footer text-center">
-                        <p style="color:<? echo $detail['footer_text_color']; ?>">A Design by <a id="colorbtn1" href="https://www.icedinfotech.com/" target="_blank">ICED Infotech</a></p>
-                        <p style="color:<? echo $detail['footer_text_color']; ?>">Copyright 2022. All Rights Reserved.</p>
+                        <p style="color:<?php echo $detail['footer_text_color']; ?>">A Design by <a id="colorbtn1" href="https://www.icedinfotech.com/" target="_blank">ICED Infotech</a></p>
+                        <p style="color:<?php echo $detail['footer_text_color']; ?>">Copyright 2022. All Rights Reserved.</p>
 
 
                     </div> <!-- footer copyright text and social links area -->
@@ -2883,11 +2883,11 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
-                    <? if($detail['popup_image1']!="") { ?>
-                    <img src="<? echo base_url().'assets/user_assets/popup/'.$detail['popup_image1']; ?>" alt="">
-                    <? } else { ?>
-                    <img src="<? echo base_url().'assets/user_assets/popup/test.png'; ?>" alt="">
-                    <? } ?>
+                    <?php if($detail['popup_image1']!="") { ?>
+                    <img src="<?php echo base_url().'assets/user_assets/popup/'.$detail['popup_image1']; ?>" alt="">
+                    <?php } else { ?>
+                    <img src="<?php echo base_url().'assets/user_assets/popup/test.png'; ?>" alt="">
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -2896,7 +2896,7 @@
 
 
     <!-- jQuery (necessary for all JavaScript plugins) -->
-    <script src="<? echo base_url().'assets/js/jquery-1.11.3.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/jquery-1.11.3.min.js'; ?>"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <!-- GOOGLE MAPS -->
 
@@ -3050,25 +3050,25 @@
     </script>
     
     <!-- Bootstrap JS -->
-    <script src="<? echo base_url().'assets/js/bootstrap.min.js'; ?>"></script>
-    <script src="<? echo base_url().'assets/js/waypoint.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/bootstrap.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/waypoint.js'; ?>"></script>
 
      <!-- Sticky & One Page Nav JS -->
-     <script src="<? echo base_url().'assets/js/jquery.sticky.js'; ?>"></script>
-    <script src="<? echo base_url().'assets/js/jquery.nav.js'; ?>"></script>
+     <script src="<?php echo base_url().'assets/js/jquery.sticky.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/jquery.nav.js'; ?>"></script>
     <!-- SLICK JS -->
-    <script src="<? echo base_url().'assets/js/slick.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/slick.min.js'; ?>"></script>
     <!-- VenoBox JS -->
-    <script src="<? echo base_url().'assets/js/venobox.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/venobox.min.js'; ?>"></script>
 
     
    
     <!-- CounterUp JS -->
-    <script src="<? echo base_url().'assets/js/jquery.counterup.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/jquery.counterup.min.js'; ?>"></script>
     <!-- Owl JS -->
-    <script src="<? echo base_url().'assets/js/owl.carousel.min.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/owl.carousel.min.js'; ?>"></script>
     <!-- SCRIPT JS -->
-    <script src="<? echo base_url().'assets/js/main.js'; ?>"></script>
+    <script src="<?php echo base_url().'assets/js/main.js'; ?>"></script>
     <!-- Waypoints JS -->
     <script>
   const filterItem = document.querySelector(".items1");
@@ -3101,13 +3101,13 @@ window.onload = ()=>{ //after window loaded
 </body>
 
 </html>
-<? } else { ?> 
+<?php } else { ?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><? echo $detail['company_name']; ?></title>
+    <title><?php echo $detail['company_name']; ?></title>
 </head>
 <body>
     <h1 align="center">Your card is inactive or not exist</h1>  
@@ -3115,4 +3115,4 @@ window.onload = ()=>{ //after window loaded
     background-color:black;">Pay Now</button></p>
 </body>
 </html>
-<? }?>
+<?php }?>

@@ -4,7 +4,7 @@ if (!isset($_SESSION['user'])) {
     redirect('admin/index', 'refresh');
 }
 if ($_SESSION['id'] != $userid) {
-    echo "not logged in";
+    echo "Not get id";
     redirect('admin/index', 'refresh');
 }
 ?>
@@ -30,9 +30,20 @@ if ($_SESSION['id'] != $userid) {
     <link rel="stylesheet" href="<?php echo base_url().'assets/admin_assets/css/style.css'; ?>">
     <!-- endinject -->
     <link rel="icon" type="image/x-icon" href="<?php echo base_url().'assets/user_assets/favicon/favicon633320.png'; ?>" />
+    <style>
+        #btn btn-primary{
+            position:fixed;
+            left:0px;
+            top:width:100%;
+            height:100%;
+            z-index:9999; 
+            background:url('<? echo base_url().'assets/admin_asets/images/spinner.gif'; ?>')50% 50% no-repeat rgb(249,249,249);
+} 
+    </style>
 </head>
 
 <body>
+   
 <div class="container-scroller">
     <div class="row p-0 m-0 proBanner" id="proBanner">
       <div class="col-md-12 p-0 m-0">
@@ -51,7 +62,7 @@ if ($_SESSION['id'] != $userid) {
         </div>
       </div>
     </div>
-        <?php include_once('menu.php'); ?>
+        <? include_once('menu.php'); ?>
         <!-- partial -->
         <div class="main-panel">
             <div class="content-wrapper">
@@ -60,10 +71,10 @@ if ($_SESSION['id'] != $userid) {
                     <div class="col-md-12 grid-margin">
                         <div class="d-flex justify-content-between flex-wrap">
                             <div class="d-flex align-items-end flex-wrap">
-                                <!-- <div class="me-md-3 me-xl-5">
-                                    <h2>Welcome back,</h2>
-                                    <p class="mb-md-0">Your digital card dashboards</p>
-                                </div> -->
+                                <div class="me-md-3 me-xl-5">
+                                    <!--<h2>Welcome back,</h2>-->
+                                    <!--<p class="mb-md-0">Your digital card dashboards</p>-->
+                                </div>
                                 <!-- <div class="d-flex">
                     <i class="mdi mdi-home text-muted hover-cursor"></i>
                     <p class="text-muted mb-0 hover-cursor">&nbsp;/&nbsp;Dashboard&nbsp;/&nbsp;</p>
@@ -80,7 +91,7 @@ if ($_SESSION['id'] != $userid) {
                   <button type="button" class="btn btn-light bg-white btn-icon me-3 mt-2 mt-xl-0">
                     <i class="mdi mdi-plus text-muted"></i>
                   </button> -->
-                                <!-- <button class="btn btn-primary mt-2 mt-xl-0">Generate report</button> -->
+                                <!--<button class="btn btn-primary mt-2 mt-xl-0">Generate report</button>-->
                             </div>
                         </div>
                     </div>
@@ -91,9 +102,26 @@ if ($_SESSION['id'] != $userid) {
                             <div class="card-body dashboard-tabs p-0">
                                 <ul class="nav nav-tabs px-4" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], "changepassword") == true) {
+                                        <a class="nav-link <?php if ($this->uri->segment(2)=='dashboard') {
                                                                 echo "active";
-                                                            } ?>" id="overview-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="false">Change Password</a>
+                                                            } ?>" id="overview-tab" href="<?php echo base_url().'index.php/Admin/dashboard/'.$userid; ?>">Personal
+                                            Details</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link ">|</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link <?php if ($this->uri->segment(2)=='about') {
+                                                                echo "active";
+                                                            } ?>" id="overview-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="false">About</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link ">|</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link <?php if ($this->uri->segment(2)=='theme') {
+                                                                echo "active";
+                                                            } ?>" href="<?php echo base_url().'index.php/Admin/theme/'.$userid; ?>">Theme</a>
                                     </li>
                                     <!-- <li class="nav-item">
                     <a class="nav-link" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab"
@@ -255,29 +283,15 @@ if ($_SESSION['id'] != $userid) {
               </div>
             </div> -->
                 </div>
-
+                <a href="<?php echo base_url().'index.php/admin/dashboard/'.$userid; ?>"><button type="button" class="btn btn-secondary ">Back</button></a>
+                <a href="<?php echo base_url().'index.php/admin/theme/'.$userid; ?>"><button type="submit" style="float:right;" class="btn btn-primary">Skip</button><br><br></a>
                 <div class="row">
                     <div class="col-md-12 stretch-card">
                         <div class="card">
                             <div class="card-body">
 
                                 <!-- <p class="card-title">Recent Purchases</p> -->
-                                <h4 class="card-title">Change Password Form</h4>
-                                <?php if ($this->session->flashdata('success')) : ?>
-                                    <div class="alert alert-info">
-                                        <?= $this->session->flashdata('success'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error1')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error1'); ?>
-                                    </div>
-                                <?php endif; ?>
+                                <h4 class="card-title">About Detail Form</h4>
                                 <!-- <p class="card-description">
                     Basic form layout
                   </p> -->
@@ -288,100 +302,75 @@ if ($_SESSION['id'] != $userid) {
                                         <input type="hidden" required name="userid" class="form-control" id="exampleInputUsername1" placeholder="Company Name" value="<?php echo $userid; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputUsername1">Old Password</label>
-                                        <input type="text" required name="old_pass" class="form-control" id="exampleInputUsername1" placeholder="Old Password" value="">
+                                        <label for="exampleInputUsername1">About Title*</label>
+                                        <input type="text" required name="abt_title" class="form-control" id="exampleInputUsername1" placeholder="Title" value="<?php echo $about['about_title']; ?>">
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">New Password</label>
-                                        <input type="text" required name="new_pass" class="form-control" id="exampleInputEmail1" placeholder="New Password" value="">
+                                        <label class="form-label" for="basic-icon-default-message" style="margin-top:20px;">About Description*</label>
+                                        <div class="input-group input-group-merge">
+                                            <textarea  class="form-control" id="description" name="abt_desc"  required maxlength="1000" rows="10" cols="50" ><?php echo $about['about_description']; ?></textarea>
+                                        </div>
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Confirm Password</label>
-                                        <input type="text" required name="conf_pass" class="form-control" id="exampleInputEmail1" placeholder="Confirm Password" value="">
+                                        <label class="form-label" for="basic-icon-default-message">About Image*<br>(720
+                                            X 720)(1MB Max)</label>
+                                        <input type="hidden" name="abt_img1" value="<?php echo $about['about_image']; ?>" />
+                                        <div class="col-sm-4">
+                                             <? if($about['about_image']!="")
+                                              { ?>
+                                              <img style="max-width: 100%;height: auto;border:2px solid black;padding:10px;border-radius:5%" src="<?php echo base_url() . 'assets/user_assets/about/' . $about['about_image']; ?>" />
+                                              <br>
+                                              <br> 
+                                              <a href="<?php echo base_url().'admin/editPageAbout/'.$userid.'/about/about_image/'.$about['about_image']; ?>" style="
+                                              margin-top:10px;
+                                              padding: 5px 10px;
+                                              background-color:#dc143c;
+                                              color: #fff;
+                                              text-decoration: none;
+                                              border-radius: 5px;">Edit Image</a>
+                                              <? } else { ?>
+                                            <input type="file" data-allowed-file-extensions="png jpg jpeg webp" data-max-file-size="1M" id="about_image" name="about_image" class="dropify" required/>
+                                             <? } ?>
+                                        </div>
                                     </div>
-                                    <button type="submit" name="chpass" class="btn btn-primary me-2">Change</button>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Est Year*</label>
+                                        <input type="text" required name="est_year" class="form-control" id="exampleInputEmail1" placeholder="Est Year" value="<?php echo $about['est_year']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Business Type*</label>
+                                        <input type="text" required name="business_type" class="form-control" id="exampleInputEmail1" placeholder="business_type" value="<?php echo $about  ['business_type']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Website</label>
+                                        <input type="url"  name="web" class="form-control" pattern="https?://.+" id="exampleInputEmail1" placeholder="Website" value="<?php echo $about['website']; ?>">
+                                    </div>
+                                    <h4>Opening Hrs:</h4>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Monday To Friday:*</label>
+                                        <input type="text" required name="mon_fri" class="form-control" id="exampleInputEmail1" value="<?php echo $about['mon_fri']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Saturday:*</label>
+                                        <input type="text" required name="saturday" class="form-control" id="exampleInputEmail1" value="<?php echo $about['saturday']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Sunday:*</label>
+                                        <input type="text" required name="sunday" class="form-control" id="exampleInputEmail1" value="<?php echo $about['sunday']; ?>">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Maptag(Set Width="100%")*</label>
+                                         <a href="https://www.youtube.com/watch?v=xEESt2LpRCw" target="_blank"><label >(Click To Check Reference)</label></a>
+                                        <textarea class="form-control" name="maptag" required id="exampleTextarea1" placeholder="iframe tag url" rows="6"><?php echo $about['maptag']; ?></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleTextarea1">Mapurl*</label><a href="https://youtu.be/ZUSZluaPFMU" target="_blank"><label >(Click To Check Reference)</label></a>
+                                        <textarea class="form-control" name="mapurl" placeholder="Mapurl" required id="exampleTextarea1" rows="6"><?php echo $about['mapurl']; ?></textarea>
+                                    </div>
+                                    <button type="submit" id="addabt" name="addabt" class="btn btn-primary me-2">Next</button>
                                     <!-- <button class="btn btn-light">Cancel</button> -->
                                 </form>
-                                <!-- <div class="table-responsive">
-                    <table id="recent-purchases-listing" class="table">
-                      <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Status report</th>
-                          <th>Office</th>
-                          <th>Price</th>
-                          <th>Date</th>
-                          <th>Gross amount</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>Jeremy Ortega</td>
-                          <td>Levelled up</td>
-                          <td>Catalinaborough</td>
-                          <td>$790</td>
-                          <td>06 Jan 2018</td>
-                          <td>$2274253</td>
-                        </tr>
-                        <tr>
-                          <td>Alvin Fisher</td>
-                          <td>Ui design completed</td>
-                          <td>East Mayra</td>
-                          <td>$23230</td>
-                          <td>18 Jul 2018</td>
-                          <td>$83127</td>
-                        </tr>
-                        <tr>
-                          <td>Emily Cunningham</td>
-                          <td>support</td>
-                          <td>Makennaton</td>
-                          <td>$939</td>
-                          <td>16 Jul 2018</td>
-                          <td>$29177</td>
-                        </tr>
-                        <tr>
-                          <td>Minnie Farmer</td>
-                          <td>support</td>
-                          <td>Agustinaborough</td>
-                          <td>$30</td>
-                          <td>30 Apr 2018</td>
-                          <td>$44617</td>
-                        </tr>
-                        <tr>
-                          <td>Betty Hunt</td>
-                          <td>Ui design not completed</td>
-                          <td>Lake Sandrafort</td>
-                          <td>$571</td>
-                          <td>25 Jun 2018</td>
-                          <td>$78952</td>
-                        </tr>
-                        <tr>
-                          <td>Myrtie Lambert</td>
-                          <td>Ui design completed</td>
-                          <td>Cassinbury</td>
-                          <td>$36</td>
-                          <td>05 Nov 2018</td>
-                          <td>$36422</td>
-                        </tr>
-                        <tr>
-                          <td>Jacob Kennedy</td>
-                          <td>New project</td>
-                          <td>Cletaborough</td>
-                          <td>$314</td>
-                          <td>12 Jul 2018</td>
-                          <td>$34167</td>
-                        </tr>
-                        <tr>
-                          <td>Ernest Wade</td>
-                          <td>Levelled up</td>
-                          <td>West Fidelmouth</td>
-                          <td>$484</td>
-                          <td>08 Sep 2018</td>
-                          <td>$50862</td>
-                        </tr>
-                      </tbody>
-                    </table>
-                  </div> -->
+
                             </div>
                         </div>
                     </div>
@@ -403,7 +392,10 @@ if ($_SESSION['id'] != $userid) {
     <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    </div>
+    <script>
+        $('document').ready(function(e){ 
+        $("#btn btn-primaryr").fadeout("slow")
+    </script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha512-egJ/Y+22P9NQ9aIyVCh0VCOsfydyn8eNmqBy+y2CnJG+fpRIxXMS6jbWP8tVKp0jp+NO5n8WtMUAnNnGoJKi4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- dropify -->
@@ -412,27 +404,28 @@ if ($_SESSION['id'] != $userid) {
     <script src="<?php echo base_url('assets/admin_assets/dropify/form-fileupload.init.js'); ?>"></script>
 
     <!-- plugins:js -->
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/vendors/base/vendor.bundle.base.js'; ?>"></script>
     <!-- endinject -->
+    <script src="<?php echo base_url('assets/admin_assets/ckeditor/ckeditor.js'); ?>"></script>
     <!-- Plugin js for this page-->
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/chart.js/Chart.min.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net/jquery.dataTables.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js'; ?>">
+    <script src="<? echo base_url().'assets/admin_assets/vendors/chart.js/Chart.min.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/vendors/datatables.net/jquery.dataTables.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/vendors/datatables.net-bs4/dataTables.bootstrap4.js'; ?>">
     </script>
     <!-- End plugin js for this page-->
     <!-- inject:js -->
-    <script src="<?php echo base_url().'assets/admin_assets/js/off-canvas.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/hoverable-collapse.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/template.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/off-canvas.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/hoverable-collapse.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/template.js'; ?>"></script>
     <!-- endinject -->
     <!-- Custom js for this page-->
-    <script src="<?php echo base_url().'assets/admin_assets/js/dashboard.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/data-table.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/jquery.dataTables.js'; ?>"></script>
-    <script src="<?php echo base_url().'assets/admin_assets/js/dataTables.bootstrap4.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/dashboard.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/data-table.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/jquery.dataTables.js'; ?>"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/dataTables.bootstrap4.js'; ?>"></script>
     <!-- End custom js for this page-->
 
-    <script src="<?php echo base_url().'assets/admin_assets/js/jquery.cookie.js'; ?>" type="text/javascript"></script>
+    <script src="<? echo base_url().'assets/admin_assets/js/jquery.cookie.js'; ?>" type="text/javascript"></script>
 </body>
 
 </html>

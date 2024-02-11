@@ -12,7 +12,37 @@ if ($_SESSION['id'] != $userid) {
 <html lang="en">
 
 <head>
+    <style>
+        .card12 {
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: #00528a;
+            color: white;
+            padding: 0rem;
+            height: 25rem;
+        }
 
+        .cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 1rem;
+        }
+
+        /* Screen larger than 600px? 2 column */
+        @media (min-width: 600px) {
+            .cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Screen larger than 900px? 3 columns */
+        @media (min-width: 900px) {
+            .cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -39,12 +69,16 @@ if ($_SESSION['id'] != $userid) {
         <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
           <div class="ps-lg-1">
             <div class="d-flex align-items-center justify-content-between">
-              <p class="mb-0 font-weight-medium me-3 buy-now-text">Any Problem With the card then contact us</p>
-              <!-- <a href="https://www.bootstrapdash.com/product/majestic-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a> -->
+              <p class="mb-0 font-weight-medium me-3 buy-now-text">Free customer support, updates, and more with
+                this Card!</p>
+              <!-- <a href="https://www.bootstrapdash.com/product/majestic-admin-pro/?utm_source=organic&utm_medium=banner&utm_campaign=buynow_demo"
+                target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a> -->
             </div>
           </div>
           <div class="d-flex align-items-center justify-content-between">
-          <button id="bannerClose" class="btn border-0 p-0">
+            <!-- <a href="https://www.bootstrapdash.com/product/majestic-admin-pro/"><i
+                class="mdi mdi-home me-3 text-white"></i></a> -->
+            <button id="bannerClose" class="btn border-0 p-0">
               <i class="mdi mdi-close text-white me-0"></i>
             </button>
           </div>
@@ -61,7 +95,9 @@ if ($_SESSION['id'] != $userid) {
                         <div class="d-flex justify-content-between flex-wrap">
                             <div class="d-flex align-items-end flex-wrap">
                                 <!-- <div class="me-md-3 me-xl-5">
-                                    <h2>Welcome back,</h2>
+                                    <h2>Welcome back,
+                                       
+                                    </h2>
                                     <p class="mb-md-0">Your digital card dashboards</p>
                                 </div> -->
                                 <!-- <div class="d-flex">
@@ -89,12 +125,26 @@ if ($_SESSION['id'] != $userid) {
                     <div class="col-md-12 grid-margin stretch-card">
                         <div class="card">
                             <div class="card-body dashboard-tabs p-0">
-                                <ul class="nav nav-tabs px-4" role="tablist">
+                                <!-- <ul class="nav nav-tabs px-4" role="tablist">
                                     <li class="nav-item">
-                                        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], "changepassword") == true) {
+                                        <a class="nav-link <?php if (strpos($_SERVER['PHP_SELF'], "product") == true) {
                                                                 echo "active";
-                                                            } ?>" id="overview-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="false">Change Password</a>
+                                                            } ?>" id="overview-tab" data-bs-toggle="tab" href="#" role="tab" aria-controls="overview" aria-selected="false">Products</a>
                                     </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link ">|</a>
+                                    </li>
+                                    <li class="nav-item <?php if (strpos($_SERVER['PHP_SELF'], "about") == true) {
+                                                            echo "active";
+                                                        } ?>">
+                                        <a class="nav-link" href="<?php echo base_url().'index.php/Admin/brands/'.$userid; ?>">Brands</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link ">|</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="<?php echo base_url().'index.php/Admin/gallery/'.$userid; ?>" role="tab">Gallery</a>
+                                    </li> -->
                                     <!-- <li class="nav-item">
                     <a class="nav-link" id="overview-tab" data-bs-toggle="tab" href="#overview" role="tab"
                         aria-controls="overview" aria-selected="false">|</a>
@@ -255,54 +305,358 @@ if ($_SESSION['id'] != $userid) {
               </div>
             </div> -->
                 </div>
+                
+                <!-- <a href="<?php echo base_url().'index.php/admin/theme/'.$userid; ?>"><button type="button" onclick="" class="btn btn-secondary ">Back</button>
+                    <a href="<?php echo base_url().'index.php/admin/brands/'.$userid; ?>"><button type="button" style="float:right;" class="btn btn-primary">Skip</button></a><br><br> -->
+                    <div class="row">
+                        <div class="col-md-12 stretch-card">
+                            <div class="card">
+                                <div class="card-body">
 
-                <div class="row">
-                    <div class="col-md-12 stretch-card">
-                        <div class="card">
-                            <div class="card-body">
-
-                                <!-- <p class="card-title">Recent Purchases</p> -->
-                                <h4 class="card-title">Change Password Form</h4>
-                                <?php if ($this->session->flashdata('success')) : ?>
-                                    <div class="alert alert-info">
-                                        <?= $this->session->flashdata('success'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <?php if ($this->session->flashdata('error1')) : ?>
-                                    <div class="alert alert-danger">
-                                        <?= $this->session->flashdata('error1'); ?>
-                                    </div>
-                                <?php endif; ?>
-                                <!-- <p class="card-description">
+                                    <!-- <p class="card-title">Recent Purchases</p> -->
+                                    <h2 class="card-title">Select Theme </h2>
+                                    <!-- <p class="card-description">
                     Basic form layout
                   </p> -->
-                                <form class="forms-sample" method="post" enctype="multipart/form-data">
+                        <!-- <style>
+                              .wrapper123 {
+                                  margin: 40px auto;
+                                  padding: 20px;
+                                  max-width: 940px;
+                                  background: #FFF;
+                                  overflow-x: hidden;
+                              }
 
-                                    <!-- <button class="btn btn-light">Skip</button> -->
-                                    <div class="form-group">
+                              .title {
+                                  text-align: center;
+                              }
+
+                              hr {
+                                  margin: 20px 0;
+                                  border: 1px solid gold;
+                              }
+
+
+                              .image-wrap {
+                                  width: 100%;
+                              }
+
+                              .pic {
+                                  display: block;
+                                  float: left;
+                              }
+
+                              .image-wrap .pic {
+                                  margin: 5px 5px 0 0;
+                                  width: 285px;
+                                  height: 313px;
+                              }
+
+
+
+                              @media(max-width: 1000px) {
+                                  .image-wrap .pic {
+                                      width: 100%;
+                                      height: 100%;
+                                      margin: 0 0 5px;
+                                  }
+                              }
+
+                              .image-wrap>input {
+                                      display: none
+                                  }
+                              .image-wrap>img {
+                                    cursor: pointer;
+                                    border: 5px solid transparent;
+                                }
+                              .image-wrap>input:checked+img {
+                                    border-color: black;
+                                    border-radius: 10px;
+                                }
+                              label
+                              {
+                                display:block;
+                              }
+                    </style> -->
+                    <style>
+        :root {
+            --card-line-height: 1.2em;
+            --card-padding: 1em;
+            --card-radius: 0.5em;
+            --color-green: #015385;
+            --color-gray: #e2ebf6;
+            --color-dark-gray: #c4d1e1;
+            --radio-border-width: 2px;
+            --radio-size: 1.5em;
+        }
+
+
+        .grid123 {
+            display: grid;
+            grid-gap: var(--card-padding);
+            margin: 0 auto;
+            max-width: 60em;
+            padding: 0;
+        }
+
+
+        /* @media (min-width: 42em) {
+            .grid123 {
+                grid-template-columns: repeat(2, 0fr);
+            }
+        } */
+        .plan-details .pic 
+        {
+          margin: 5px 5px 0 0;
+          width: 285px;
+          height: 313px;                     
+        }
+        @media(max-width: 1000px) 
+        {
+          .plan-details .pic {
+              width: 100%;
+              height: 100%;
+              margin: 0 0 5px;
+          }
+        }
+        @media (min-width: 600px) {
+        .grid123 { 
+          grid-template-columns: repeat(2, 1fr); 
+          }
+          }
+
+          @media (min-width: 900px) {
+          .grid123 { 
+            grid-template-columns: repeat(3, 1fr); 
+          }
+          }
+
+
+        .cardnew {
+            background-color: #fff;
+            border-radius: var(--card-radius);
+            position: relative;
+        }
+
+        .cardnew:hover {
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .radio {
+            font-size: inherit;
+            margin: 0;
+            position: absolute;
+            right: calc(var(--card-padding) + var(--radio-border-width));
+            top: calc(var(--card-padding) + var(--radio-border-width));
+        }
+
+        @supports (-webkit-appearance: none) or (-moz-appearance: none) {
+            .radio {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                background: #fff;
+                border: var(--radio-border-width) solid var(--color-gray);
+                border-radius: 50%;
+                cursor: pointer;
+                height: var(--radio-size);
+                outline: none;
+                transition: background 0.2s ease-out, border-color 0.2s ease-out;
+                width: var(--radio-size);
+            }
+
+            .radio::after {
+                border: var(--radio-border-width) solid #fff;
+                border-top: 0;
+                border-left: 0;
+                content: '';
+                display: block;
+                height: 0.75rem;
+                left: 25%;
+                position: absolute;
+                top: 50%;
+                transform: rotate(45deg) translate(-50%, -50%);
+                width: 0.375rem;
+            }
+
+            .radio:checked {
+                background: var(--color-green);
+                border-color: var(--color-green);
+            }
+
+            .cardnew:hover .radio {
+                border-color: var(--color-dark-gray);
+            }
+
+            .cardnew:hover .radio:checked {
+                border-color: var(--color-green);
+            }
+        }
+
+        .plan-details {
+            border: var(--radio-border-width) solid var(--color-gray);
+            border-radius: var(--card-radius);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            padding: var(--card-padding);
+            transition: border-color 0.2s ease-out;
+        }
+
+        .cardnew:hover .plan-details {
+            border-color: var(--color-dark-gray);
+        }
+
+        .radio:checked~.plan-details {
+            border-color: var(--color-green);
+        }
+
+        .radio:focus~.plan-details {
+            box-shadow: 0 0 0 2px var(--color-dark-gray);
+        }
+
+        .radio:disabled~.plan-details {
+            color: var(--color-dark-gray);
+            cursor: default;
+        }
+
+        .radio:disabled~.plan-details .plan-type {
+            color: var(--color-dark-gray);
+        }
+
+        .cardnew:hover .radio:disabled~.plan-details {
+            border-color: var(--color-gray);
+            box-shadow: none;
+        }
+
+        .cardnew:hover .radio:disabled {
+            border-color: var(--color-gray);
+        }
+
+        .plan-type {
+            color: var(--color-green);
+            font-size: 1.5rem;
+            font-weight: bold;
+            line-height: 1em;
+        }
+
+        .plan-cost {
+            font-size: 2.5rem;
+            font-weight: bold;
+            padding: 0.5rem 0;
+        }
+
+        .slash {
+            font-weight: normal;
+        }
+
+        .plan-cycle {
+            font-size: 2rem;
+            font-variant: none;
+            border-bottom: none;
+            cursor: inherit;
+            text-decoration: none;
+        }
+
+        .hidden-visually {
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+    </style>
+                                    <form class="forms-sample" method="post" enctype="multipart/form-data">
                                         <input type="hidden" required name="userid" class="form-control" id="exampleInputUsername1" placeholder="Company Name" value="<?php echo $userid; ?>">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputUsername1">Old Password</label>
-                                        <input type="text" required name="old_pass" class="form-control" id="exampleInputUsername1" placeholder="Old Password" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">New Password</label>
-                                        <input type="text" required name="new_pass" class="form-control" id="exampleInputEmail1" placeholder="New Password" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Confirm Password</label>
-                                        <input type="text" required name="conf_pass" class="form-control" id="exampleInputEmail1" placeholder="Confirm Password" value="">
-                                    </div>
-                                    <button type="submit" name="chpass" class="btn btn-primary me-2">Change</button>
-                                    <!-- <button class="btn btn-light">Cancel</button> -->
-                                </form>
-                                <!-- <div class="table-responsive">
+                                        <input type="hidden" name="catttt" value="" />
+                                        <div class="grid123">
+                                            <label class="cardnew">
+                                                <input name="theme" class="radio" type="radio" value="theme1" <?php if($select['theme']=='theme1'){ ?> checked <?php } ?>>
+
+                                                <span class="plan-details">
+                                                    <img src="<?php echo base_url().'assets/user_assets/images/img1.png' ?>" class="pic"><br>
+                                                    <button style="background-color:#015385;color:white;">Preview</button>
+                                                </span>
+                                            </label>
+                                            <label class="cardnew">
+                                                <input name="theme" class="radio" type="radio" value="theme2" <?php if($select['theme']=='theme2'){ ?> checked <?php } ?>>
+                                                <span class="hidden-visually">Pro - $50 per month, 5 team members, 500 GB per month, 5 concurrent
+                                                    builds</span>
+                                                <span class="plan-details" aria-hidden="true">
+                                                    <img src="<?php echo base_url().'assets/user_assets/images/img2.png' ?>" class="pic"><br>
+                                                    <button style="background-color:#015385;color:white;">Preview</button>
+                                                </span>
+                                            </label>
+                                        </div>
+                                        <!-- <div class="wrapper123">
+                                              <label class="image-wrap">
+                                                  <input type="radio" name="theme" value="theme1" <?php if($select['theme']=='theme1'){ ?> checked <?php } ?> />
+                                                  <img src="<?php echo base_url().'assets/user_assets/images/img1.png' ?>" class="pic">
+                                              </label>
+                                              <label class="image-wrap">
+                                              <input type="radio" name="theme" value="theme2" <?php if($select['theme']=='theme2'){ ?> checked <?php } ?>>
+                                                  <img src="<?php echo base_url().'assets/user_assets/images/img2.png' ?>" class="pic">
+                                              </label>
+                                              
+                                        </div> -->
+                                        <button style="margin-top:20px;" type="submit" name="seltheme" class="btn btn-primary me-2">Next</button>
+                                        <!-- <button class="btn btn-light">Skip</button> -->
+                                        <!-- <div class="form-group">
+                      
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputUsername1">Company Name*</label>
+                      <input type="text" required name="company_name" class="form-control" id="exampleInputUsername1" placeholder="Company Name" value="<?php echo $person['company_name']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Owner Name</label>
+                      <input type="text" required name="owner_name"class="form-control" id="exampleInputEmail1" placeholder="Owner Name" value="<?php echo $person['owner_name']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Position</label>
+                      <input type="text" required name="position" class="form-control" id="exampleInputEmail1" placeholder="Position" value="<?php echo $person['position']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email</label>
+                      <input type="email" required name="email" class="form-control" id="exampleInputEmail1" placeholder="Email" value="<?php echo $person['email']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Contact Number/Whatsapp Number</label>
+                      <input type="text" required name="contact_no" class="form-control" id="exampleInputEmail1" value="<?php echo $person['contact_no']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Alternate Contact 1</label>
+                      <input type="text"  name="alcon1" class="form-control" id="exampleInputEmail1" placeholder="Alternate Contact 1" value="<?php echo $person['alternate_contact1']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Alternate Contact 2</label>
+                      <input type="text"  name="alcon2" class="form-control" id="exampleInputEmail1" placeholder="Alternate Contact 2" value="<?php echo $person['alternate_contact2']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Alternate Contact 3</label>
+                      <input type="text"  name="alcon3" class="form-control" id="exampleInputEmail1" placeholder="Alternate Contact 3" value="<?php echo $person['alternate_contact3']; ?>">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleTextarea1">Address</label>
+                      <textarea class="form-control" name="address" required id="exampleTextarea1" rows="4"><?php echo $person['address']; ?></textarea>
+                    </div>
+                    <div class="form-group">
+                                            <label class="form-label" for="basic-icon-default-message" >Logo Image<br>(400 X 400)</label>
+                                            <input type="hidden" name="logo_img1" value="<?php echo $person['logo_image']; ?>" />
+                                            <div class="col-sm-4" >
+                                                <input type="file" id="logo_img" name="logo_img" class="dropify" data-default-file="<?php if ($person['logo_image'] != '') {
+                                                                                                                                            echo base_url() . 'assets/user_assets/logo/' . $person['logo_image'];
+                                                                                                                                        } ?>" /> 
+                                            </div>
+                                        </div>
+                    <button type="submit" name="addper" class="btn btn-primary me-2">Next</button> -->
+                                        <!-- <button class="btn btn-light">Cancel</button> -->
+
+                                    </form>
+                                    <!-- <div class="table-responsive">
                     <table id="recent-purchases-listing" class="table">
                       <thead>
                         <tr>
@@ -382,10 +736,10 @@ if ($_SESSION['id'] != $userid) {
                       </tbody>
                     </table>
                   </div> -->
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
@@ -403,7 +757,7 @@ if ($_SESSION['id'] != $userid) {
     <!-- page-body-wrapper ends -->
     </div>
     <!-- container-scroller -->
-    </div>
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js" integrity="sha512-egJ/Y+22P9NQ9aIyVCh0VCOsfydyn8eNmqBy+y2CnJG+fpRIxXMS6jbWP8tVKp0jp+NO5n8WtMUAnNnGoJKi4w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- dropify -->

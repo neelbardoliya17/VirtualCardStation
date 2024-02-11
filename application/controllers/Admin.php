@@ -117,7 +117,7 @@ class Admin extends CI_Controller
                         $dataarr=$this->Admin_model->getUserPass($iid);
                         
                         
-                        $this->send_verification_email($dataarr['user_mail'],$dataarr['verification_code']);
+                        // $this->send_verification_email($dataarr['user_mail'],$dataarr['verification_code']);
                         
                         
                         // $config = Array(
@@ -159,9 +159,9 @@ class Admin extends CI_Controller
                 
                         // echo $this->email->print_debugger();
                         
-                        $this->session->set_flashdata('success', 'Verification Link has been send to your Email');
+                        $this->session->set_flashdata('success', 'Login withnthe email and password');
                         // copy($src_path,$des_path.$fname);
-                        redirect('admin/register');
+                        redirect('admin/login');
                 }
               
                 // $this->admin_model->addserv($newarra);
@@ -175,14 +175,79 @@ class Admin extends CI_Controller
             }
         }
     }
-    
-    public function send_verification_email($email, $verification_code)
-{
+    public function testEmail()
+    {
     // Set email parameters
     $this->load->library("email");
-    $this->email->from('neelbardoliya17@gmail.com', 'ICED INFOTECH');
+
+    $config=array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'smtp.gmail.com',
+        'smtp_timeout' => 30,
+        'smtp_port' => 465,
+        'smtp_user' => 'neelbardoliya17@gmail.com',
+        'smtp_pass' => 'Ashishdaxa@345',
+        'charset' => 'utf-8',
+        'mailtype' => 'html',
+        'newline' => "\r\n"
+    );
+   
+    $this->email->initialize($config);
+    $this->email->set_newline("\r\n");
+    $this->email->set_crlf("\r\n");
+    $this->email->to("shahhetvi578@gmail.com");
+    $this->email->from("neelbardoliya17@gmail.com");
+    $this->email->subject("Virtual Card Station Email Verification");
+
+    // Construct email message
+    // $message = "<!DOCTYPE html>
+    //             <html>
+    //             <head>
+    //             </head>
+    //             <body>
+    //             <h1>Please click the link below to verify your email</h1>
+    //             <a href='" . base_url("admin/verify_email/$verification_code") . "'>Verify Email</a>
+    //             </body>
+    //             </html>";
+
+    $message="Hi all";
+    $this->email->message($message);
+
+    // Send email using mail protocol
+    if ($this->email->send()) {
+        echo "Success";
+        // return true;
+    } else {
+        // Uncomment the following line to print debug information
+        // echo $this->email->print_debugger();
+        print_r($this->email->print_debugger());
+        echo "Fail";
+        // return false;
+    }
+    }
+    public function send_verification_email($email, $verification_code)
+    {
+    // Set email parameters
+    $this->load->library("email");
+
+    $config=array(
+        'protocol' => 'smtp',
+        'smtp_host' => 'ssl://smtp.gmail.com',
+        'smtp_timeout' => 30,
+        'smtp_port' => 465,
+        'smtp_user' => 'neelbardoliya17@gmail.com',
+        'smtp_pass' => 'Ashishdaxa@345',
+        'charset' => 'utf-8',
+        'mailtype' => 'html',
+        'newline' => '\r\n'
+    );
+
+    $this->email->initialize($config);
+    $this->email->set_newline("\r\n");
+    $this->email0->set_crlf("\r\n");
+    // $this->email->from('neelbardoliya17@gmail.com', 'ICED INFOTECH');
     $this->email->to($email);
-    $this->email->subject("Digital Card Email Verification");
+    $this->email->subject("Virtual Card Station Email Verification");
 
     // Construct email message
     $message = "<!DOCTYPE html>
@@ -204,10 +269,11 @@ class Admin extends CI_Controller
     } else {
         // Uncomment the following line to print debug information
         // echo $this->email->print_debugger();
+        print_r($this->email->print_debugger());
         echo "Fail";
         return false;
     }
-}
+    }
 
     public function verify_email($verification_code) {
         $user = $this->Admin_model->get_user_by_verification_code($verification_code);
@@ -269,20 +335,25 @@ class Admin extends CI_Controller
             //     unlink(FCPATH . 'assets/user_assets/logo/' . $logo_img1);
             //     unlink(FCPATH . 'assets/user_assets/logo/big_img/' . $logo_img1);
             
-            
+                echo $logo_img1;
                 if($logo_img1=="")
                 {
                     if ($_FILES['logo_img']['error'] <= 0) {
-                $this->load->library('image');
+                $this->load->library('Image');
                 $image = $this->image->createImage1("logo_img", "logo", "200", "77");
                 $data['logo_image'] = $image;
                     }
                 }
+                echo $image;
                
             // }
             $this->Admin_model->updatePersonalInfo($uid, $data);
             redirect('Admin/about/' . $uid);
         }
+    }
+    public function ttt1()
+    {
+        echo FCPATH;
     }
     public function about($id)
     {
